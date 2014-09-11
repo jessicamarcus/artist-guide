@@ -1,0 +1,11 @@
+{
+    "name": "artist-guide",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "*",
+        "path": "*",
+        "mongoose": "*",
+        "body-parser": "*",
+        "method-override": "*"
+    }
+}

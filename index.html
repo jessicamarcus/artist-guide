@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8"/>
+    <title></title>
+
+    <meta name="description" content=""/>
+    <meta property="og:title" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:description" content=""/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/ill.style.css"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row topTitle"><h1>Illuminus <span class="small"> Artist guide | admin page</span></h1></div>
+
+    <div class="row">
+    <div class="artistList col-sm-3">
+        <ul id="artistList"></ul>
+        <div id="pubToggle" class="btn btn-alt btn-sm static">Publish selected</div>
+    </div>
+
+    <div id="addArtist" class="editArtist col-sm-8">
+        <form class="form-horizontal" action="#">
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label">First Name: </label>
+                <div class="col-sm-9"><input id="firstName" type="text" class="form-control"/></div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label">Last Name: </label>
+                <div class="col-sm-9"><input id="lastName" type="text" class="form-control"/></div>
+            </div>
+            <div class="form-group">
+                <label for="projectName" class="col-sm-3 control-label">Project Name: </label>
+                <div class="col-sm-9"><input id="projectName" type="text" class="form-control"/></div>
+            </div>
+            <div class="form-group checkbox">
+                <label for="altName">
+                    <input type="checkbox" id="altName" value="">
+                    Display project name on website, not artist's name.
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-3 control-label">Description: </label>
+                <div class="col-sm-9"><textarea id="description" class="form-control" rows="3"></textarea></div>
+            </div>
+            <div class="form-group">
+                <label for="artistBio" class="col-sm-3 control-label">Artist Bio: </label>
+                <div class="col-sm-9"><textarea id="artistBio" class="form-control" rows="3"></textarea></div>
+            </div>
+            <div class="form-group">
+                <label for="weblink" class="col-sm-3 control-label">http:// </label>
+                <div class="col-sm-9"><input id="weblink" type="url" class="form-control" /> </div>
+            </div>
+            <div class="form-group">
+                <label for="photo" class="control-label col-sm-3">Photo:</label>
+                <div class="col-sm-9"><input type="file" id="photo" /></div>
+            </div>
+
+        </form>
+
+        <div class="btns">
+            <div class="btn-group btn-group-med btn-group-justified publishBtns">
+                <div id="isPublished" class="btn btn-alt"><span class="glyphicon glyphicon-ok"></span> Published</div>
+                <div id="isNotPublished" class="btn btn-alt active"><span class="glyphicon glyphicon-remove"></span> Not Published</div>
+            </div>
+            <div class="btn-group btn-group-med btn-group-justified absBtm">
+                <div id="add" class="btn btn-alt">Save</div>
+                <div id="cancel" class="btn btn-alt">Cancel</div>
+                <div id="delete" class="btn btn-alt">Delete</div>
+            </div>
+        </div>
+    </div>
+
+</div></div>
+    <script data-main="app" src="lib/require.js"></script>
+</body>
+</html>
