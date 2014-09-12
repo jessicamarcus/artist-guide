@@ -3,13 +3,7 @@
 <head>
     <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
     <meta charset="utf-8"/>
-    <title></title>
-
-    <meta name="description" content=""/>
-    <meta property="og:title" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:description" content=""/>
+    <title>illuminus | artist guide | admin page</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/ill.style.css"/>
@@ -21,11 +15,11 @@
     <div class="row">
     <div class="artistList col-sm-3">
         <ul id="artistList"></ul>
-        <div id="pubToggle" class="btn btn-alt btn-sm static">Publish selected</div>
+        <div id="pubToggle" class="btn btn-alt btn-sm">Publish selected</div>
     </div>
 
-    <div id="addArtist" class="editArtist col-sm-8">
-        <form class="form-horizontal" action="#">
+    <div id="artistDetails" class="editArtist col-sm-8">
+        <form class="form-horizontal" action="#" id="">
             <div class="form-group">
                 <label for="firstName" class="col-sm-3 control-label">First Name: </label>
                 <div class="col-sm-9"><input id="firstName" type="text" class="form-control"/></div>
@@ -60,20 +54,21 @@
                 <label for="photo" class="control-label col-sm-3">Photo:</label>
                 <div class="col-sm-9"><input type="file" id="photo" /></div>
             </div>
+            <div class="form-group checkbox">
+                <label for="altName" class="pubToggle">
+                    <input type="checkbox" id="isPublished" value=""> Published
+                </label>
+            </div>
+
 
         </form>
 
-        <div class="btns">
-            <div class="btn-group btn-group-med btn-group-justified publishBtns">
-                <div id="isPublished" class="btn btn-alt"><span class="glyphicon glyphicon-ok"></span> Published</div>
-                <div id="isNotPublished" class="btn btn-alt active"><span class="glyphicon glyphicon-remove"></span> Not Published</div>
-            </div>
-            <div class="btn-group btn-group-med btn-group-justified absBtm">
-                <div id="add" class="btn btn-alt">Save</div>
-                <div id="cancel" class="btn btn-alt">Cancel</div>
-                <div id="delete" class="btn btn-alt">Delete</div>
-            </div>
+        <div class="btn-group btn-group-med btn-group-justified absBtm">
+            <div id="save" class="btn btn-alt">Save</div>
+            <div id="cancel" class="btn btn-alt">Cancel</div>
+            <div id="delete" class="btn btn-alt">Delete</div>
         </div>
+
     </div>
 
 </div></div>

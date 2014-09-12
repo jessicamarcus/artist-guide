@@ -19,10 +19,6 @@ $button-press: rgb(38, 94, 57);
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .5);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, .5);
 }
-.static:active {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
-}
 .container-fluid {
   margin-top: 20px;
 }
@@ -39,9 +35,21 @@ $button-press: rgb(38, 94, 57);
   position: absolute;
   bottom: 10px;
 }
-.publishBtns {
-  position: relative;
-  bottom: -100px;
+#pubToggle {
+  margin: 10px;
+}
+.pubToggle {
+  border: 1px solid $body-background;
+  color: $text-color-gray;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  margin-top: 20px;
+  padding: 5px;
+  width: 200px;
+}
+.pubToggleOn {
+  border: 1px solid $link-color;
+  color: $text-color-body;
 }
 .checkbox {
   text-align: center;
@@ -55,9 +63,10 @@ $button-press: rgb(38, 94, 57);
   padding-left: 0;
 }
 .artistList {
-  min-height: 700px;
+  height: 700px;
+  overflow: auto;
   background-color: $button-press;
-  margin-right: 5px;
+  margin: 0 auto;
   padding-top: 10px;
 }
 .listItem {
@@ -74,4 +83,10 @@ $button-press: rgb(38, 94, 57);
   min-height: 700px;
   background-color: $button-color;
   padding-top: 10px;
+}
+.listItem .checkbox {
+  display: inline;
+  padding-left: 5px;
+  padding-bottom: 10px;
+
 }

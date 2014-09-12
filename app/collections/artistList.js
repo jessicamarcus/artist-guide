@@ -7,14 +7,14 @@ define(['backbone', 'm.artist', 'v.artist'], function (Backbone, Artist) {
 //        published: function () {
 //            return this.where({published: true});
 //        },
-        createNew: function (e) {
-            e.preventDefault();
+        createNew: function () {
             var formData = {};
-            $("#addArtist").find("input").each(function (i, el) {
+            $("#artistDetails").find("input").each(function (i, el) {
                 if ($(el).val() != '') {
                     formData[el.id] = $(el).val();
                 }
             });
+            this.create(formData);
         }
     });
 });

@@ -1,1 +1,8 @@
-<li class="listItem btn-alt"><input type="checkbox" value="{{id}}"/> <a id="{{id}}" href="#">{{firstName}} {{lastName}}<br /><i>{{projectName}}</i></a></li>
+<li class="listItem btn-alt">
+    <span class="checkbox">
+    {{#if isPublished}}
+    <input type="checkbox" value="{{_id}}" checked />
+    {{else}}
+    <input type="checkbox" value="{{_id}}" />
+    {{/if}}
+    </span> <a id="{{_id}}" href="#">{{firstName}} {{lastName}}<br /><i>{{projectName}}</i></a></li>

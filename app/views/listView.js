@@ -5,10 +5,12 @@ define(['jquery', 'backbone', 'handlebars', 'text!app/views/templates/listTempla
         template: Handlebars.compile(ListTemplate),
 
         initialize: function () {
-            this.listenTo(this.collection, 'reset', this.renderList);
+            this.listenTo(this.collection, 'sync', this.renderList);
+//            this.listenTo(this.collection, 'add', this.renderList);
         },
         renderList: function () {
             this.collection.each(function (artist) {
+                //this.$el.clear();
                 this.$el.append(this.template(artist.toJSON()));
             }, this);
         },
@@ -17,10 +19,9 @@ define(['jquery', 'backbone', 'handlebars', 'text!app/views/templates/listTempla
         },
         clicked: function (e) {
             e.preventDefault();
-            var id = $(e.currentTarget).attr('id'),
-                item = this.collection.get(id),
-                name = item.get('firstName');
-            console.log(name);
+            var id = $(e.currentTarget).attr('id');
+            var item = this.collection.get(id);
+            console.log(id);
         }
 
     })
