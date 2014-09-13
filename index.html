@@ -15,7 +15,6 @@
     <div class="row">
     <div class="artistList col-sm-3">
         <ul id="artistList"></ul>
-        <div id="pubToggle" class="btn btn-alt btn-sm">Publish selected</div>
     </div>
 
     <div id="artistDetails" class="editArtist col-sm-8">
@@ -32,11 +31,12 @@
                 <label for="projectName" class="col-sm-3 control-label">Project Name: </label>
                 <div class="col-sm-9"><input id="projectName" type="text" class="form-control"/></div>
             </div>
-            <div class="form-group checkbox">
-                <label for="altName">
-                    <input type="checkbox" id="altName" value="">
-                    Display project name on website, not artist's name.
-                </label>
+            <div class="form-group">
+                <label for="altName" class="col-sm-3"></label>
+                    <div class="col-sm-9">
+                        <input type="checkbox" id="altName" value="">
+                        Display project name on website, not artist's name.
+                    </div>
             </div>
             <div class="form-group">
                 <label for="description" class="col-sm-3 control-label">Description: </label>
@@ -54,12 +54,15 @@
                 <label for="photo" class="control-label col-sm-3">Photo:</label>
                 <div class="col-sm-9"><input type="file" id="photo" /></div>
             </div>
-            <div class="form-group checkbox">
-                <label for="altName" class="pubToggle">
-                    <input type="checkbox" id="isPublished" value=""> Published
-                </label>
-            </div>
 
+            <div class="form-group">
+                <label for="isPublished" class="control-label col-sm-3">Status:</label>
+                <div class="col-sm-9">
+                    <div id="isPublished" class="btn-alt pubToggle">
+                    <i class="fa fa-check"></i> Published
+                    </div>
+                </div>
+            </div>
 
         </form>
 

@@ -1,15 +1,13 @@
 define(['jquery', 'backbone', 'handlebars', 'm.artist', 'c.list', 'text!app/views/templates/artistTemplate.html'], function ($, Backbone, Handlebars, Artist, ArtistList, ArtistTemplate) {
     return Backbone.View.extend({
         el: '#artistDetails',
-//        template: Handlebars.compile(ArtistTemplate),
 
         initialize: function () {
 //            this.listenTo(this.model, 'change', this.renderArtist);
 //            this.listenTo(this.model, 'destroy', this.remove);
         },
         events: {
-//            'click #published': 'publishArtist',
-//            'click #altName': 'setAlt',
+            'click #placeholder': 'deleteArtist',
             'click #delete': 'populateForm',
             'click #cancel': 'clearForm',
             'click #save': 'createNewArtist'

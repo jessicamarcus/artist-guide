@@ -1,8 +1,12 @@
-<li class="listItem btn-alt">
-    <span class="checkbox">
-    {{#if isPublished}}
-    <input type="checkbox" value="{{_id}}" checked />
-    {{else}}
-    <input type="checkbox" value="{{_id}}" />
-    {{/if}}
-    </span> <a id="{{_id}}" href="#">{{firstName}} {{lastName}}<br /><i>{{projectName}}</i></a></li>
+<li class="viewItem">
+    <div class="listItem btn-alt">
+        <i class="fa fa-check unpublished"></i>
+        {{#if isPublished}}
+        <input class="isPublished" type="checkbox" checked />
+        {{else}}
+        <input class="isPublished" type="checkbox" />
+        {{/if}}
+        &nbsp;<a id="{{_id}}" href="#">{{firstName}} {{lastName}}<br />
+        <i class="text-right">{{projectName}}</i></a>
+    </div>
+</li>
