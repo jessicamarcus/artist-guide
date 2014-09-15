@@ -9,6 +9,7 @@ requirejs.config({
         'm.artist': 'app/models/artist',
         'c.list': 'app/collections/artistList',
         'v.list': 'app/views/listView',
+        'v.listitem': 'app/views/listItemView',
         'v.artist': 'app/views/artistView'
     },
     shim: {
@@ -22,9 +23,9 @@ requirejs.config({
 });
 requirejs(['jquery', 'c.list', 'v.list', 'v.artist'], function ($, Artists, ListView, ArtistView) {
     var ArtistAdmin = new Artists();
-    ArtistAdmin.fetch({reset: true});
-    $(function () {
-        new ListView({collection: ArtistAdmin});
-        new ArtistView({collection: ArtistAdmin});
-    });
+    ArtistAdmin.fetch({
+        reset: true,
+        success: function () {
+            new ListView({collection: ArtistAdmin});
+        }});
 });

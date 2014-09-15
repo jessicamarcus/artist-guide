@@ -12,6 +12,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             published: false,
             altNameDisplayed: false
         },
+        id: '_id',
 
         isPublished: function () {
             this.save({published: !this.get('published')});
