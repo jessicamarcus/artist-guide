@@ -84,17 +84,24 @@ $button-press: rgb(38, 94, 57);
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
+  display: none;
 }
 .published {
   color: $text-color-body;
 }
-
+.unpublished {
+  color: $text-color-gray;
+}
+.togglePub {
+  padding: 0 2px;
+  border: 1px solid $button-color;
+  color: $text-color-gray;
+}
 .listItem {
   margin: 10px 0;
   padding: 2px;
   border: 1px solid transparent;
   border-radius: 2px;
-  color: $text-color-gray;
   background-color: transparent;
 }
 

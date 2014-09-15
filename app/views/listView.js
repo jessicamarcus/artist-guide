@@ -13,18 +13,21 @@ define(['jquery', 'backbone', 'handlebars', 'text!app/views/templates/listTempla
             this.collection.each(function (artist) {
                 this.$el.append(this.template(artist.toJSON()));
             }, this);
+
         },
         events: {
-            'click a': 'clicked'
+            'click a': 'clicked',
+            'click .togglePub': 'publish'
         },
         clicked: function (e) {
             e.preventDefault();
             var id = $(e.currentTarget).attr('id');
 //            var item = this.collection.get(id);
-            console.log(id);
+            //console.log(id);
         },
         publish: function () {
-            this.model.isPublished();
+            $(event.target).toggleClass('published');
+            //this.model.isPublished();
         },
         setAlt: function () {
             this.model.altNameDisplay();

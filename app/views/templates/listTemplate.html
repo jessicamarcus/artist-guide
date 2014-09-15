@@ -1,12 +1,12 @@
 <li class="viewItem">
     <div class="listItem btn-alt">
-        <i class="fa fa-check unpublished"></i>
-        {{#if isPublished}}
-        <input class="isPublished" type="checkbox" checked />
+        {{#if published}}
+        <a href="#" class="togglePub published">
         {{else}}
-        <input class="isPublished" type="checkbox" />
+        <a href="#" class="togglePub">
         {{/if}}
+            <i class="fa fa-check"></i></a>
         &nbsp;<a id="{{_id}}" href="#">{{firstName}} {{lastName}}<br />
-        <i class="text-right">{{projectName}}</i></a>
+        <em class="text-right">{{projectName}}</em></a>
     </div>
 </li>

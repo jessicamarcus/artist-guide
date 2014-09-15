@@ -66,17 +66,25 @@
   -webkit-appearance: none;
   -ms-appearance: none;
   -o-appearance: none;
-  appearance: none; }
+  appearance: none;
+  display: none; }
 
 .published {
   color: #eeeeee; }
+
+.unpublished {
+  color: #6e7071; }
+
+.togglePub {
+  padding: 0 2px;
+  border: 1px solid #3b8f57;
+  color: #6e7071; }
 
 .listItem {
   margin: 10px 0;
   padding: 2px;
   border: 1px solid transparent;
   border-radius: 2px;
-  color: #6e7071;
   background-color: transparent; }
 
 @font-face {

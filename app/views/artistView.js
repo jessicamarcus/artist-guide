@@ -3,7 +3,7 @@ define(['jquery', 'backbone', 'handlebars', 'm.artist', 'c.list', 'text!app/view
         el: '#artistDetails',
 
         initialize: function () {
-//            this.listenTo(this.model, 'change', this.renderArtist);
+//            this.listenTo(this.model, 'change', this.publish);
 //            this.listenTo(this.model, 'destroy', this.remove);
         },
         events: {
@@ -39,6 +39,7 @@ define(['jquery', 'backbone', 'handlebars', 'm.artist', 'c.list', 'text!app/view
 //            this.model.save(); //todo: function saves changes OR adds new model object, replaces createNewArtist
 //        },
         publish: function () {
+            this.$el.toggleClass('published', this,model.get('isPublished'));
             this.model.isPublished();
         },
         setAlt: function () {
