@@ -17,11 +17,12 @@ define(['jquery', 'backbone', 'handlebars', 'c.list', 'v.listitem'], function ($
         renderArtists: function (artist) {
             var listItemView = new ListItem({model: artist});
             this.$el.append(listItemView.render().el);
+//            this.collection.sort();
+        },
+        events: {
+            'click #sortProject': 'this.collection.sortBy("projectName")',
+            'click #sortName': 'sortByName'
         }
-//        events: {
-//            'click a': 'clicked',
-//            'click .togglePub': 'publish'
-//        },
 //        clicked: function (e) {
 //            e.preventDefault();
 //            var id = $(e.currentTarget).attr('id');

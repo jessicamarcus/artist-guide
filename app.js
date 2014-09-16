@@ -27,5 +27,6 @@ requirejs(['jquery', 'c.list', 'v.list', 'v.artist'], function ($, Artists, List
         reset: true,
         success: function () {
             new ListView({collection: ArtistAdmin});
+            new ArtistView({collection: ArtistAdmin});
         }});
 });

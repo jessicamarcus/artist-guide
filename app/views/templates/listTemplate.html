@@ -1,10 +1,11 @@
 <div class="listItem btn-alt">
-    {{#if published}}
-    <a href="#" class="togglePub published">
-    {{else}}
     <a href="#" class="togglePub">
-    {{/if}}
+    {{#if published}}
+        <i class="fa fa-check published"></i></a>
+    {{else}}
         <i class="fa fa-check"></i></a>
-    &nbsp;<a id="{{_id}}" href="#">{{firstName}} {{lastName}}<br />
+    {{/if}}
+
+    &nbsp;<a id="{{_id}}" href="#" class="artistSelect">{{firstName}} {{lastName}}<br />
     <em class="text-right">{{projectName}}</em></a>
 </div>

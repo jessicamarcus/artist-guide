@@ -17,7 +17,7 @@ app.use(express.static(path.join(application_root, '')));
 //app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
 app.route('/api')
-    .get(function(req, resp) {
+    .get(function (req, resp) {
         resp.send('api is up and running')
     });
 
@@ -38,7 +38,7 @@ app.route('/api/artists')
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             projectName: req.body.projectName,
-            description: req.body.description,
+            desc: req.body.desc,
             bio: req.body.bio,
             webLink: req.body.webLink,
             published: req.body.published,
@@ -56,7 +56,7 @@ app.route('/api/artists')
 
 app.route('/api/artists/:id')
     //get artist by id
-    .get(function(req, resp) {
+    .get(function (req, resp) {
         return ArtistModel.findById(req.params.id, function (err, artist) {
             if (!err) {
                 return resp.send(artist);
@@ -65,14 +65,14 @@ app.route('/api/artists/:id')
             }
         })
     })
-    //put (update) artist
-    .post(function(req, resp) {
+    // update artist
+    .put(function (req, resp) {
         console.log('Updating artist ' + req.body.title);
         return ArtistModel.findById(req.params.id, function (err, artist) {
             artist.firstName = req.body.firstName;
             artist.lastName = req.body.lastName;
             artist.projectName = req.body.projectName;
-            artist.description = req.body.description;
+            artist.desc = req.body.desc;
             artist.bio = req.body.bio;
             artist.webLink = req.body.webLink;
             artist.published = req.body.published;
@@ -88,7 +88,7 @@ app.route('/api/artists/:id')
             })
         })
     })
-    .delete(function(req, resp) {
+    .delete(function (req, resp) {
         console.log('deleting artist with id: ' + req.params.id);
         return ArtistModel.findById(req.params.id, function (err, artist) {
             return artist.remove(function (err) {
@@ -107,7 +107,7 @@ var Artist = new mongoose.Schema({
     firstName: String,
     lastName: String,
     projectName: String,
-    description: String,
+    desc: String,
     bio: String,
     webLink: String,
     published: Boolean,

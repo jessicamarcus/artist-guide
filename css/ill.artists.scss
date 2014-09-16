@@ -48,6 +48,7 @@ $button-press: rgb(38, 94, 57);
   bottom: 10px;
 }
 
+//for artist view
 .pubToggle {
   border: 1px solid $body-background;
   color: $text-color-gray;
@@ -56,9 +57,11 @@ $button-press: rgb(38, 94, 57);
   padding: 5px;
   width: 200px;
   text-align: center;
-  .published {
-    border: 1px solid $link-color;
-  }
+  cursor: pointer;
+}
+.artistPub {
+  border: 1px solid $link-color;
+  color: $text-color-body;
 }
 
 

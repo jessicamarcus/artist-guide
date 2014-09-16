@@ -5,7 +5,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             firstName: '',
             lastName: '',
             projectName: '',
-            description: '',
+            desc: '',
             bio: '',
             webLink: '',
             //photo: '',

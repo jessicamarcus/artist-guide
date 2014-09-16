@@ -39,7 +39,7 @@ define(['jquery', 'backbone', 'handlebars', 'm.artist', 'c.list', 'text!app/view
 //            this.model.save(); //todo: function saves changes OR adds new model object, replaces createNewArtist
 //        },
         publish: function () {
-            this.$el.toggleClass('published', this,model.get('isPublished'));
+            $(event.target).toggleClass('published');
             this.model.isPublished();
         },
         setAlt: function () {

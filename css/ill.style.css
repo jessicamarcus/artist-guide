@@ -43,9 +43,12 @@
   border-radius: 3px;
   padding: 5px;
   width: 200px;
-  text-align: center; }
-  .pubToggle .published {
-    border: 1px solid #4fd389; }
+  text-align: center;
+  cursor: pointer; }
+
+.artistPub {
+  border: 1px solid #4fd389;
+  color: #eeeeee; }
 
 #artistList {
   margin: 0;
