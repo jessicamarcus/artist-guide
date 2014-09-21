@@ -4,9 +4,7 @@ define(['jquery', 'backbone', 'handlebars', 'text!app/views/templates/listTempla
         template: Handlebars.compile(ListTemplate),
 
         events: {
-            'click a': 'select',
-            'click .togglePub': 'publish',
-            'click .artistSelect': 'select'
+            'click .togglePub': 'publish'
         },
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
@@ -16,13 +14,6 @@ define(['jquery', 'backbone', 'handlebars', 'text!app/views/templates/listTempla
         publish: function () {
             $(event.target).toggleClass('published');
             this.model.isPublished();
-        },
-        select: function (e) {
-            e.preventDefault();
-            var id = $(e.currentTarget).attr('id');
-            console.log(this.collection);
-//            var item = this.collection.get(id);
-//            console.log(item.attributes.projectName);
         }
     });
 });

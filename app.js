@@ -10,7 +10,8 @@ requirejs.config({
         'c.list': 'app/collections/artistList',
         'v.list': 'app/views/listView',
         'v.listitem': 'app/views/listItemView',
-        'v.artist': 'app/views/artistView'
+        'v.artist': 'app/views/artistView',
+        'ctl.admin': 'app/controllers/adminController'
     },
     shim: {
         underscore: { exports: '_' },
@@ -21,12 +22,8 @@ requirejs.config({
         handlebars: { exports: 'Handlebars' }
     }
 });
-requirejs(['jquery', 'c.list', 'v.list', 'v.artist'], function ($, Artists, ListView, ArtistView) {
-    var ArtistAdmin = new Artists();
-    ArtistAdmin.fetch({
-        reset: true,
-        success: function () {
-            new ListView({collection: ArtistAdmin});
-            new ArtistView({collection: ArtistAdmin});
-        }});
+requirejs(['ctl.admin'], function (AdminController) {
+    AdminController.actions.showList();
+    AdminController.actions.showDetail();
+
 });

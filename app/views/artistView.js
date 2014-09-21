@@ -6,6 +6,19 @@ define(['jquery', 'backbone', 'handlebars', 'm.artist', 'c.list', 'text!app/view
 //            this.listenTo(this.model, 'change', this.publish);
 //            this.listenTo(this.model, 'destroy', this.remove);
         },
+        render: function (artist) {
+            $("#artistDetails").find("input").each(function (i, el) {
+
+            });
+        },
+//        createNew: function () {
+//            var formData = {};
+//            $("#artistDetails").find("input").each(function (i, el) {
+//                if ($(el).val() != '') {
+//                    formData[el.id] = $(el).val();
+//                }
+//            });
+//            this.create(formData);
         events: {
             'click #placeholder': 'deleteArtist',
             'click #delete': 'populateForm',
