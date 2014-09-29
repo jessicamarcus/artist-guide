@@ -1,48 +1,29 @@
-define(['jquery', 'backbone', 'handlebars', 'm.artist', 'c.list', 'text!app/views/templates/artistTemplate.html'], function ($, Backbone, Handlebars, Artist, ArtistList, ArtistTemplate) {
+define(['jquery', 'backbone', 'm.artist', 'c.list'], function ($, Backbone, Artist, ArtistList) {
     return Backbone.View.extend({
         el: '#artistDetails',
 
-        initialize: function () {
-//            this.listenTo(this.model, 'change', this.publish);
-//            this.listenTo(this.model, 'destroy', this.remove);
+        render: function () {
+            if (this.model) {
+                var currentModel = this.model;
+                $("#artistDetails").find('.form-field').each(function (i, el) {
+                    var currentId = $(el).attr('id'),
+                        currentVal = currentModel.get(currentId);
+                        $(el).val(currentVal);
+                    });
+            }
         },
-        render: function (artist) {
-            $("#artistDetails").find("input").each(function (i, el) {
-
-            });
-        },
-//        createNew: function () {
-//            var formData = {};
-//            $("#artistDetails").find("input").each(function (i, el) {
-//                if ($(el).val() != '') {
-//                    formData[el.id] = $(el).val();
-//                }
-//            });
-//            this.create(formData);
         events: {
-            'click #placeholder': 'deleteArtist',
-            'click #delete': 'populateForm',
+            'click #delete': 'deleteArtist',
             'click #cancel': 'clearForm',
             'click #save': 'createNewArtist'
         },
-        populateForm: function () {
-            var testModel = this.collection.get('540f120b79e976d013fbeb90');
-
-            $('#artistDetails').find('input').each(function (i, el) {
-                var currentId = $(el).attr('id'),
-                    currentVal = testModel.get(currentId);
-                if (currentVal) {
-                    $(el).val(currentVal);
-                }
-            });
-        },
         clearForm: function () {
-            $('#artistDetails').find('input').each(function (i, el) {
+            $('#artistDetails').find('.form-field').each(function (i, el) {
                 $(el).val('');
             })
         },
         createNewArtist: function () { //todo: saveArtist will supplant this function
-            this.collection.createNew();
+            this.controller.actions.createNew();
             this.clearForm();
         },
         deleteArtist: function () {

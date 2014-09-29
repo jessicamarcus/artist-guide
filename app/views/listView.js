@@ -4,6 +4,7 @@ define(['jquery', 'backbone', 'handlebars', 'c.list', 'v.listitem'], function ($
         itemBound: 'item:bound',
 
         render: function () {
+            this.$el.empty();
             this.collection.each(function (artist) {
                 this.renderArtists(artist);
             }, this);

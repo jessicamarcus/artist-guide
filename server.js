@@ -38,8 +38,8 @@ app.route('/api/artists')
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             projectName: req.body.projectName,
-            desc: req.body.desc,
-            bio: req.body.bio,
+            projectDesc: req.body.projectDesc,
+            artistBio: req.body.artistBio,
             webLink: req.body.webLink,
             published: req.body.published,
             displayAltName: req.body.displayAltName
@@ -72,8 +72,8 @@ app.route('/api/artists/:id')
             artist.firstName = req.body.firstName;
             artist.lastName = req.body.lastName;
             artist.projectName = req.body.projectName;
-            artist.desc = req.body.desc;
-            artist.bio = req.body.bio;
+            artist.projectDesc = req.body.projectDesc;
+            artist.artistBio = req.body.artistBio;
             artist.webLink = req.body.webLink;
             artist.published = req.body.published;
             artist.displayAltName = req.body.displayAltName;
@@ -107,8 +107,8 @@ var Artist = new mongoose.Schema({
     firstName: String,
     lastName: String,
     projectName: String,
-    desc: String,
-    bio: String,
+    projectDesc: String,
+    artistBio: String,
     webLink: String,
     published: Boolean,
     displayAltName: Boolean

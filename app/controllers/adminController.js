@@ -1,24 +1,35 @@
 define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', 'c.list'], function ($, Backbone, Handlebars, ListView, ArtistView, ListItemView, Artists) {
-    var controller = {
+    var adminController = {
+        artistList: new Artists(),
         actions: {
             showList: function () { // display entries in sidebar
-                var artistList = new Artists(),
-                    artistListView = new ListView({collection: artistList});
+                var artistListView = new ListView({collection: adminController.artistList});
 
-                artistListView.listenTo(artistList, 'change add sync', artistListView.render);
+                artistListView.listenTo(adminController.artistList, 'change add sync', artistListView.render);
 
                 // listen for itemDataBound event to apply click handler to each entry in sidebar
                 artistListView.on(artistListView.itemBound, function (artist) {
                     var link = this.$el.find('#artist' + artist.id);
                     link.click(function () {
-                        controller.actions.showDetail(artist); // click to display artist info in artistView
+                        adminController.actions.showDetail(artist); // click to display artist info in artistView
+                        console.log(artist.id);
                     });
                 });
-                artistList.fetch({reset: true});
+                adminController.artistList.fetch({reset: true});
             },
             showDetail: function (artist) {
-                var artistView = new ArtistView({model: artist});
+                var artistView = new ArtistView({model: artist, collection: adminController.artistList});
+                artistView.controller = adminController;
                 artistView.render();
+            },
+            createNew: function () {
+                var formData = {};
+                $('#artistDetails').find('.form-field').each(function (i, el) {
+                    if ($(el).val() != '') {
+                        formData[el.id] = $(el).val();
+                    }
+                });
+                adminController.artistList.create(formData);
             }
         },
         views: {
@@ -27,5 +38,5 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
             listItemView: ListItemView
         }
     };
-    return controller;
+    return adminController;
 });
