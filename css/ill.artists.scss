@@ -53,20 +53,25 @@ $button-press: rgb(38, 94, 57);
 
 //for artist view
 #isPublished {
-  border: 1px solid $body-background;
-  color: $text-color-gray;
-  background-color: rgba(255, 255, 255, 0.25);
+//  border: 1px solid $body-background;
+//  color: $text-color-gray;
+//  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 3px;
   padding: 5px;
   width: 200px;
-  text-align: center;
-  cursor: pointer;
-}
-.artistPub {
-  border: 1px solid $link-color;
-  color: $text-color-body;
+//  text-align: center;
+//  cursor: pointer;
 }
 
+.alt-name {
+  color: $text-color-body;
+  background-color: $text-color-body;
+  border: none;
+  border-radius: 2px;
+}
+.alt-name-on {
+  color: $body-background;
+}
 
 //lefthand artist list contents
 #artistList {
@@ -77,26 +82,29 @@ $button-press: rgb(38, 94, 57);
     position: relative;
   }
 }
-.isPublished {
-  text-align: center;
-  width: 40px;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  border: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  display: none;
-}
+//.isPublished {
+//  text-align: center;
+//  width: 40px;
+//  height: auto;
+//  position: absolute;
+//  top: 0;
+//  bottom: 0;
+//  margin: auto 0;
+//  border: none;
+//  -webkit-appearance: none;
+//  -ms-appearance: none;
+//  -o-appearance: none;
+//  appearance: none;
+//  display: none;
+//}
 .published {
   color: $text-color-body;
 }
 .unpublished {
   color: $text-color-gray;
+}
+.col-sm-9 > .unpublished:before {
+  content: "Not ";
 }
 .togglePub {
   padding: 0 2px;

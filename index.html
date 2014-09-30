@@ -16,7 +16,7 @@
     <div class="artistList col-sm-3">
 
         <div class="listItem btn-alt" id="add-new"><i class="fa fa-plus-square"></i> &nbsp;Create new listing</div>
-        <div class="sortOptions">Sort by: <a id="sortName">Name</a> | <a id="sortProject">Project</a></div>
+        <!--<div class="sortOptions">Sort by: <a id="sortName">Name</a> | <a id="sortProject">Project</a></div>-->
         <ul id="artistList"></ul>
     </div>
 
@@ -34,13 +34,15 @@
                 <label for="projectName" class="col-sm-3 control-label">Project Name: </label>
                 <div class="col-sm-9"><input id="projectName" type="text" class="form-control form-field"/></div>
             </div>
-            <div class="form-group">
-                <label for="altName" class="col-sm-3"></label>
-                    <div class="col-sm-9">
-                        <input type="checkbox" id="altName" value="" class="form-field">
-                        List by project name on website instead of artist's name.
-                    </div>
-            </div>
+            <!--<div class="form-group">-->
+                <!--<label for="altName" class="col-sm-3"></label>-->
+                    <!--<div class="col-sm-9">-->
+                        <!--<span id="altName" class="alt-name">-->
+                            <!--<i class="fa fa-check"></i>-->
+                        <!--</span>&nbsp;-->
+                        <!--List by project name on website instead of artist's name.-->
+                    <!--</div>-->
+            <!--</div>-->
             <div class="form-group">
                 <label for="projectDesc" class="col-sm-3 control-label">Description: </label>
                 <div class="col-sm-9"><textarea id="projectDesc" class="form-control form-field" rows="3"></textarea></div>
@@ -61,8 +63,8 @@
             <div class="form-group">
                 <label for="isPublished" class="control-label col-sm-3">Status:</label>
                 <div class="col-sm-9">
-                    <div id="isPublished" class="btn-alt pubToggle">
-                        <i class="fa fa-check"></i> Published
+                    <div id="isPublished" class="unpublished">
+                        Published
                     </div>
                 </div>
             </div>

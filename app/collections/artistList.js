@@ -1,4 +1,4 @@
-define(['backbone', 'm.artist', 'v.artist'], function (Backbone, Artist, ArtistView) {
+define(['backbone', 'm.artist'], function (Backbone, Artist) {
     return Backbone.Collection.extend({
         model: Artist,
         url: '/api/artists',

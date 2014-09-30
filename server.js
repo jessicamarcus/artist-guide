@@ -67,7 +67,7 @@ app.route('/api/artists/:id')
     })
     // update artist
     .put(function (req, resp) {
-        console.log('Updating artist ' + req.body.title);
+        console.log('Updating artist ' + req.params.id);
         return ArtistModel.findById(req.params.id, function (err, artist) {
             artist.firstName = req.body.firstName;
             artist.lastName = req.body.lastName;

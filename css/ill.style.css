@@ -40,18 +40,18 @@
   bottom: 10px; }
 
 #isPublished {
-  border: 1px solid black;
-  color: #6e7071;
-  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 3px;
   padding: 5px;
-  width: 200px;
-  text-align: center;
-  cursor: pointer; }
+  width: 200px; }
 
-.artistPub {
-  border: 1px solid #4fd389;
-  color: #eeeeee; }
+.alt-name {
+  color: #eeeeee;
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 2px; }
+
+.alt-name-on {
+  color: black; }
 
 #artistList {
   margin: 0;
@@ -60,26 +60,14 @@
   #artistList li {
     position: relative; }
 
-.isPublished {
-  text-align: center;
-  width: 40px;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  border: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  display: none; }
-
 .published {
   color: #eeeeee; }
 
 .unpublished {
   color: #6e7071; }
+
+.col-sm-9 > .unpublished:before {
+  content: "Not "; }
 
 .togglePub {
   padding: 0 2px;

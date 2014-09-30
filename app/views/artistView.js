@@ -1,15 +1,20 @@
 define(['jquery', 'backbone'], function ($, Backbone) {
     return Backbone.View.extend({
         el: '#artistDetails',
-
         render: function () {
+            var self = this;
             if (this.model) {
                 var currentModel = this.model;
+
                 $("#artistDetails").find('.form-field').each(function (i, el) {
                     var currentId = $(el).attr('id'),
                         currentVal = currentModel.get(currentId);
                         $(el).val(currentVal);
                     });
+                currentModel.attributes.published ?
+                    $('#isPublished').removeClass('unpublished').addClass('published') :
+                    $('#isPublished').removeClass('published').addClass('unpublished');
+                currentModel.listenTo(currentModel, 'change', self.render)
             }
         },
         events: {
@@ -21,6 +26,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             $('#artistDetails').find('.form-field').each(function (i, el) {
                 $(el).val('');
             });
+
+            $('#isPublished').removeClass('published').addClass('unpublished');
             this.controller.currentArtist = '';
             if (this.controller.currentView.model) {
                 this.controller.currentView.model.clear();
@@ -33,17 +40,18 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         saveArtist: function () {
             if (this.controller.currentArtist) {
                 this.controller.actions.editArtist();
+
             } else {
                 this.controller.actions.createNew();
             }
             this.clearForm();
-        },
-        publish: function () {
-            $(event.target).toggleClass('published');
-            this.model.isPublished();
-        },
-        setAlt: function () {
-            this.model.altNameDisplay();
         }
+//        publish: function () {
+//            $(event.target).toggleClass('published');
+//            this.model.isPublished();
+//        },
+//        setAlt: function () {
+//            this.model.altNameDisplay();
+//        }
     })
 });

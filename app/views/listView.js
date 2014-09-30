@@ -14,11 +14,11 @@ define(['jquery', 'backbone', 'handlebars', 'c.list', 'v.listitem'], function ($
             this.$el.append(listItemView.render().el);
             this.trigger(this.itemBound, artist);
 //            this.collection.sort();
-        },
+//        },
         // todo: list sort options
-        events: {
-            'click #sortProject': 'this.collection.sortBy("projectName")',
-            'click #sortName': 'sortByName'
+//        events: {
+//            'click #sortProject': 'this.collection.sortBy("projectName")',
+//            'click #sortName': 'sortByName'
         }
     })
 });
