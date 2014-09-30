@@ -20,18 +20,23 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         clearForm: function () {
             $('#artistDetails').find('.form-field').each(function (i, el) {
                 $(el).val('');
-            })
-        },
-        createNewArtist: function () { //todo: saveArtist will supplant this function
-            this.controller.actions.createNew();
-            this.clearForm();
+            });
+            this.controller.currentArtist = '';
+            if (this.controller.currentView.model) {
+                this.controller.currentView.model.clear();
+            }
         },
         deleteArtist: function () {
             this.controller.actions.deleteArtist();
             this.clearForm();
         },
         saveArtist: function () {
-        this.controller.actions.editArtist();
+            if (this.controller.currentArtist) {
+                this.controller.actions.editArtist();
+            } else {
+                this.controller.actions.createNew();
+            }
+            this.clearForm();
         },
         publish: function () {
             $(event.target).toggleClass('published');

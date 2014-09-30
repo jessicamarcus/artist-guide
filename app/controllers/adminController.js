@@ -37,7 +37,7 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                         formData[el.id] = $(el).val();
                     }
                 });
-                adminController.artistList.create(formData);
+                if (formData.length) adminController.artistList.create(formData);
             },
             editArtist: function () {
                 var formData = {};
@@ -47,7 +47,9 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                 adminController.currentArtist.save(formData);
             },
             deleteArtist: function () {
-                adminController.currentView.model.destroy();
+                if (adminController.currentView.length) {
+                    adminController.currentView.model.destroy();
+                }
             }
         },
         views: {
