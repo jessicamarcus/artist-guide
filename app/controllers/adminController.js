@@ -2,6 +2,7 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
     var adminController = {
         artistList: new Artists(),
         currentView: new ArtistView(),
+        currentArtist: {},
         actions: {
             showList: function () { // display entries in sidebar
                 var artistListView = new ListView({collection: adminController.artistList});
@@ -27,6 +28,7 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                 artistView.collection = adminController.artistList;
                 artistView.controller = adminController;
                 artistView.render();
+                adminController.currentArtist = artist;
             },
             createNew: function () {
                 var formData = {};
@@ -36,6 +38,13 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                     }
                 });
                 adminController.artistList.create(formData);
+            },
+            editArtist: function () {
+                var formData = {};
+                $('#artistDetails').find('.form-field').each(function (i, el) {
+                    formData[el.id] = $(el).val();
+                });
+                adminController.currentArtist.save(formData);
             },
             deleteArtist: function () {
                 adminController.currentView.model.destroy();

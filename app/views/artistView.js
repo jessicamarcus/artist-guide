@@ -15,7 +15,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         events: {
             'click #delete': 'deleteArtist',
             'click #cancel': 'clearForm',
-            'click #save': 'createNewArtist'
+            'click #save': 'saveArtist'
         },
         clearForm: function () {
             $('#artistDetails').find('.form-field').each(function (i, el) {
@@ -30,9 +30,9 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             this.controller.actions.deleteArtist();
             this.clearForm();
         },
-//        saveArtist: function () {
-//            this.model.save(); //todo: function saves changes OR adds new model object, replaces createNewArtist
-//        },
+        saveArtist: function () {
+        this.controller.actions.editArtist();
+        },
         publish: function () {
             $(event.target).toggleClass('published');
             this.model.isPublished();
