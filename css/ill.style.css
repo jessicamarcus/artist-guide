@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Bitter|Montserrat);
+#add-new {
+  cursor: pointer; }
+
 .btn-alt {
   border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.3); }
@@ -108,6 +111,9 @@
 
 .fa-check:before {
   content: "\f00c"; }
+
+.fa-plus-square:before {
+  content: "\f0fe"; }
 
 body, html {
   width: 100%;

@@ -10,6 +10,9 @@ $link-color: rgb(79, 211, 137);
 $button-color: rgb(59, 143, 87);
 $button-press: rgb(38, 94, 57);
 
+#add-new {
+  cursor: pointer;
+}
 .btn-alt {
   border: 1px solid $body-background;
   background-color: $body-border;
@@ -126,4 +129,7 @@ $button-press: rgb(38, 94, 57);
 }
 .fa-check:before {
   content: "\f00c"
+}
+.fa-plus-square:before {
+  content: "\f0fe"
 }

@@ -1,4 +1,4 @@
-define(['jquery', 'backbone', 'm.artist', 'c.list'], function ($, Backbone, Artist, ArtistList) {
+define(['jquery', 'backbone'], function ($, Backbone) {
     return Backbone.View.extend({
         el: '#artistDetails',
 
@@ -27,7 +27,8 @@ define(['jquery', 'backbone', 'm.artist', 'c.list'], function ($, Backbone, Arti
             this.clearForm();
         },
         deleteArtist: function () {
-            this.model.destroy();
+            this.controller.actions.deleteArtist();
+            this.clearForm();
         },
 //        saveArtist: function () {
 //            this.model.save(); //todo: function saves changes OR adds new model object, replaces createNewArtist
