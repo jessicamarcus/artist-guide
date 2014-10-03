@@ -13,8 +13,6 @@ define(['jquery', 'backbone', 'handlebars', 'v.galleryArtistDetail', 'text!app/v
             return this;
         },
         renderArtist: function () {
-            $('#artistDetail').addClass('artist-detail-visible');
-            $('#artistDetailContainer').addClass('gallery-detail-visible');
             var galleryArtistDetailView = new GalleryArtistDetailView({model: this.model});
             galleryArtistDetailView.render();
         }

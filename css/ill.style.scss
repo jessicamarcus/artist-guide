@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Bitter|Montserrat|Lato:300);
+@import url(http://fonts.googleapis.com/css?family=Bitter|Montserrat|Lato);
 // http://www.fontsquirrel.com/license/Aller
 @font-face {
   font-family: "Aller Display";
@@ -11,7 +11,7 @@ $text-face-body: "Lato", "Open Sans", sans-serif;
 $text-face-serif: Bitter, "Open Sans", sans-serif;
 $text-color-body: rgb(238, 238, 238);
 $text-color-head: rgb(255, 255, 255);
-$text-color-gray: rgb(110, 112, 113);
+$text-color-gray: rgb(123, 125, 126);
 
 $body-background: rgb(0, 0, 0);
 $body-border: rgba(255,255,255,.3);
@@ -32,7 +32,7 @@ body, html  {
 
 body {
   font-family: $text-face-body;
-  letter-spacing: .12em;
+  letter-spacing: .15em;
   color: $text-color-body;
   background-color: $body-background;
   background-size: cover;
@@ -227,8 +227,9 @@ input.form-control:focus, textarea.form-control:focus {
 .navbar {
   padding-top: 5px;
   padding-right: 15px;
-  text-transform: lowercase;
+  font-family: $text-face-subhead;
   font-size: 18px;
+  font-weight: bolder;
   letter-spacing: 1px;
   background-color: $body-background;
   border-bottom: 1px solid $body-border;
@@ -293,31 +294,6 @@ input.form-control:focus, textarea.form-control:focus {
   }
 }
 
-// this overrides the blue border that appears on the triggering button after the modal's been closed:
-.modal-open .modal,.btn:focus, a:focus {
-  outline:none!important
-}
-
-.modal-height {
-  height: 90%;
-}
-
-.modal-content {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: $body-background;
-  a {
-    color: $button-press;
-  }
-}
-
-.modal-title {
-  color: $body-background;
-}
-@media(min-width:768px) {
-  #artist-detail {
-  }
-}
-
 #map {
   width: 100%;
   height: 200px;
@@ -338,19 +314,6 @@ input.form-control:focus, textarea.form-control:focus {
   .container {
     padding: 10px;
     font-size: 80%;
-  }
-}
-
-footer {
-  padding: 50px 0;
-}
-
-footer p {
-  color: $text-color-gray;
-  margin: 0;
-  font-size: 0.75em;
-  a {
-    color: $button-color;
   }
 }
 
@@ -815,40 +778,37 @@ img::-moz-selection {
 .gallery-artist-project {
   font-style: italic;
 }
-#artistDetail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background-color: transparent;
-}
-.artist-detail-visible {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: 5s;
-}
-.gallery-detail-visible {
 
+// this overrides the blue border that appears on the triggering button after the modal's been closed:
+.modal-open .modal,.btn:focus, a:focus {
+  outline:none!important
 }
 
-#artistDetailContainer {
-  width: 50%;
-  //height: 50%;
-  position: fixed;
-  display: table-cell;
-  vertical-align: middle;
-  background-color: $text-color-gray;
-  top: 20%;
-//  top: 50%;
-//  left: 50%;
-//  margin-top: -100px;
-//  margin-left: -150px;
-  z-index: 11;
-  transition: 5s;
-}
-//.gallery-detail-body {
-//    width: 50%;
-//    height: 50%;
+//.artistDetail-show {
+//  position: fixed;
+//  top: 0;
+//  left: 0;
+//  width: 100%;
+//  height: 100%;
+//  z-index: 10;
+//  background-color: rgba(0, 0, 0, 0.5);
+//  display: table;
+//  border: 1px solid #0f0;
+//}
+
+//.artistDetailContainer {
+//  display: table-cell;
+//  vertical-align: middle;
+////  top: 50%;
+////  left: 50%;
+//  margin-left: auto;
+//  margin-right: auto;
 //  border: 1px solid #f00;
+//  z-index: 11;
+//}
+//.gallery-detail-body {
+//  background-color: $text-color-gray;
+//  width: 50%;
+//  height: 50%;
+//  transition: 5s;
 //}

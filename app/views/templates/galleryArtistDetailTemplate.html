@@ -1,9 +1,12 @@
-<div id="artistDetailContainer">
-    <div class="gallery-detail-body">
-    <div>{{firstName}} {{lastName}}</div>
-    <div>{{projectName}}</div>
-
-<div>{{projectDesc}}</div>
-<div>{{artistBio}}</div>
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         </div>
+        <div class="modal-body modal-height">
+            <p>{{firstName}} {{lastName}}</p>
+            <p>{{projectDesc}}</p>
+            <p>{{artistBio}}</p>
+        </div>
+    </div>
 </div>
