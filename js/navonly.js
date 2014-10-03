@@ -1,0 +1,1 @@
+$("#illNav").load("templates/navbar.html");

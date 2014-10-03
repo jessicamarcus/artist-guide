@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ill.style.css">
+    <title>Illuminus Boston | 10.25.2014</title>
+</head>
+
+<body id="page-top" data-target=".navbar-fixed-top">
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation" id="illNav"></nav>
+<div id="artistDetail"></div>
+
+<section class="page-content-container">
+    <div class="page-header">
+        <h1>Artists</h1>
+    </div>
+
+    <div class="page-content imported-content">
+        <p>You can add, edit, or remove sample artists by using the <a href="admin.html">the admin page</a>. Each artist preview below will be clickable, and will expand to show all the artist details. Photo upload will not work yet. This design is not complete/fully styled; also the color background is a placeholder - the artist photo thumbnail will be shown as the background instead. </p>
+        <!-- class of generated li: gallery-artist -->
+        <ul id="artistGrid"></ul>
+    </div>
+
+    <!--<div class="modal fade" id="artistDetail" tabindex="-1" role="dialog" aria-labelledby="artist detail" aria-hidden="true">-->
+        <!--<div class="modal-dialog modal-lg">-->
+            <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <!--<h2 class="modal-title">Artist Name</h2>-->
+                <!--</div>-->
+                <!--<div class="modal-body modal-height">-->
+                    <!--<p>Body for the artist detail modal.</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</section>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="js/ill.artists.js"></script>
+<script src="js/navonly.js"></script>
+<script data-main="gallery_app" src="lib/require.js"></script>
+</body>
+</html>

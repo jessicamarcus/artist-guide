@@ -1,18 +1,29 @@
-@import url(http://fonts.googleapis.com/css?family=Bitter|Montserrat);
-@import "ill.artists";
+@import url(http://fonts.googleapis.com/css?family=Bitter|Montserrat|Lato:300);
+// http://www.fontsquirrel.com/license/Aller
+@font-face {
+  font-family: "Aller Display";
+  src: url("../fonts/AllerDisplay.ttf")
+}
 
-$text-face-head: Montserrat,"Helvetica Neue", sans-serif;
-$text-face-body: Bitter, "Open Sans", sans-serif;
+$text-face-head:"Aller Display", "Montserrat", sans-serif;
+$text-face-subhead: "Montserrat", "Helvetica Neue", sans-serif;
+$text-face-body: "Lato", "Open Sans", sans-serif;
+$text-face-serif: Bitter, "Open Sans", sans-serif;
 $text-color-body: rgb(238, 238, 238);
 $text-color-head: rgb(255, 255, 255);
 $text-color-gray: rgb(110, 112, 113);
 
 $body-background: rgb(0, 0, 0);
 $body-border: rgba(255,255,255,.3);
-$link-color: rgb(79, 211, 137);
-$button-color: rgb(59, 143, 87);
-$button-press: rgb(38, 94, 57);
+$link-color: rgb(68, 193, 177);
+$button-color: rgb(0, 129, 124);
+$button-press: rgb(0, 76, 70);
 
+$background-image-1: "../img/slide/TedJacobs_NBNY.jpg";
+$background-image-2: "../img/slide/NickWolfe_NBNY.jpg";
+$background-image-3: "../img/slide/KonstantinSergeyev_NBNY.jpg";
+$background-image-4: "../img/slide/Pink_NBNY.jpg";
+$background-image-5: "../img/slide/RyanMuir_NBNY.jpg";
 
 body, html  {
   width: 100%;
@@ -21,9 +32,13 @@ body, html  {
 
 body {
   font-family: $text-face-body;
+  letter-spacing: .12em;
   color: $text-color-body;
   background-color: $body-background;
-  webkit-tap-highlight-color: rgba(255,255,255,.2)
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 a {
@@ -33,7 +48,6 @@ a {
   }
   border: none;
 }
-
 .strong-a {
   color: $text-color-body;
   font-weight: bold;
@@ -41,15 +55,14 @@ a {
     color: #fff;
   }
 }
-
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 35px;
-  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-transform: lowercase;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: .1em;
 }
 
-h1, h2, h3, h4, h5, h6, .navbar-custom, .btn {
+h1, h2, h3, h4, h5, h6, .navbar, .btn {
   font-family: $text-face-head;
   color: $text-color-head;
 }
@@ -60,10 +73,9 @@ ul {
 
 p {
   margin: 0 0 25px;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.5;
 }
-
 @media(min-width:768px) {
   p {
     margin: 0 0 35px;
@@ -81,37 +93,122 @@ a {
   }
 }
 
-input.form-control:focus, textarea.form-control:focus {
-  border-color: $link-color;
+// landing page - show text if mobile, svg if desktop
+.intro {
+  padding-top: 200px;
+  display: table;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.intro-body {
+  display: table;
+  width: 100%;
+  height: auto;
+}
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
 }
 
-#input_7 {
-  display: block;
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+}
+
+.intro .intro-body {
+  font-size: 18px;
+}
+
+.logo .brand-heading, .logo .brand-subhead {
   width: 100%;
-  height: 24px;
-  padding: 6px 12px;
-//  font-size: 14px;
-//  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  &:focus {
-    border-color: $link-color;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  display: block;
+}
+.brand-subhead {
+  font-size: 99%;
+  text-transform: none;
+  font-family: $text-face-subhead;
+}
+.brand-subhead-time {
+  font-family: $text-face-subhead;
+  font-size: 14px;
+  text-transform: none;
+}
+.logo img {
+  display: none;
+}
+.logo-type {
+  font-family: $text-face-head;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+}
+@media(min-width:768px) {
+  .logo .brand-heading, .logo .brand-subhead {
+    display: none;
+  }
+  .logo img {
+    display: block;
+  }
+  .brand-subhead-time {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-top: -100px;
   }
 }
 
-.light {
-  font-weight: 400;
+.page-content-container {
+  width: 100%;
+  height: 100%;
+}
+.page-header {
+  border: none;
+}
+@media (max-width: 767px) {
+  .page-header {
+    padding-top: 50px;
+    text-shadow: -1px 0 2px $text-color-gray;
+    margin-left: 20px;
+  }
+}
+.page-content {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 5px;
+}
+
+@media (min-width: 768px) {
+  .page-content-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding-right: 175px;
+  }
+
+  .page-header {
+    position: absolute;
+    top: 75px;
+    left: 50px;
+    border: none;
+  }
+
+  .page-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 200px 50px 50px 50px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+@media (min-width: 1100px) {
+  .page-content-container {
+    padding-right: 275px;
+  }
+}
+
+
+input.form-control:focus, textarea.form-control:focus {
+  border-color: $link-color;
 }
 
 .heavy {
@@ -126,159 +223,17 @@ input.form-control:focus, textarea.form-control:focus {
   color: $text-color-head;
 }
 
-.navbar-custom {
-  margin-bottom: 0;
-  border-bottom: 1px solid $body-border;
-  text-transform: uppercase;
-  background-color: $body-background;
-}
-
-.navbar-custom .navbar-brand {
-  font-weight: 700;
-}
-
-.navbar-custom .navbar-brand:focus {
-  outline: 0;
-}
-
-.navbar-custom .navbar-brand .navbar-toggle {
-  padding: 4px 6px;
-  font-size: 16px;
-  color: $text-color-head;
-  &:focus, &:active {
-    outline: 0;
-  }
-}
-
-.navbar-custom a {
-  color: $text-color-head;
-}
-
-.navbar-custom .nav li.active {
-  outline: none;
-  background-color: $body-border;
-}
-
-.navbar-custom .nav li a {
-  -webkit-transition: background .3s ease-in-out;
-  -moz-transition: background .3s ease-in-out;
-  transition: background .3s ease-in-out;
-}
-.navbar-custom .nav li a {
-  &:hover, &:focus, &:active {
-    outline: 0;
-    background-color: $body-border;
-    color: $button-color;
-  }
-}
-
-@media(min-width:768px) {
-  .navbar {
-    padding: 20px 0;
-    border-bottom: 0;
-    letter-spacing: 1px;
-    background: 0 0;
-    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-    -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-    transition: background .5s ease-in-out,padding .5s ease-in-out;
-  }
-  .top-nav-collapse {
-    padding: 0;
-    background-color: $body-background;
-  }
-
-  .navbar-custom.top-nav-collapse {
-    border-bottom: 1px solid $body-border;
-  }
-  .tooltip-links a:after {
-    content: attr(href);
-    display: none;
-  }
-
-  .tooltip-links a:hover:after {
-    display: inline-block;
-  }
-}
-
-.intro {
-  display: table;
-  width: 100%;
-  height: auto;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.intro-body {
-  display: table;
-  width: 100%;
-  height: auto;
-}
-
-.intro .intro-body {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.intro .intro-body .brand-heading {
-  font-size: 40px;
-}
-.brand-subhead {
-  text-transform: none;
-  margin-top: -30px;
-}
-
-
-.intro .intro-body .intro-text {
+// navigation
+.navbar {
+  padding-top: 5px;
+  padding-right: 15px;
+  text-transform: lowercase;
   font-size: 18px;
+  letter-spacing: 1px;
+  background-color: $body-background;
+  border-bottom: 1px solid $body-border;
 }
 
-@media(min-width:768px) {
-  .intro {
-    height: 100%;
-    padding: 0;
-  }
-  .intro .intro-body .brand-heading {
-    font-size: 100px;
-  }
-  .intro .intro-body .intro-text {
-    font-size: 25px;
-  }
-  .form-modal {
-    max-width: 90%;
-  }
-}
-
-@media(max-width:767px) {
-  .intro {
-    padding-top: 200px;
-  }
-  .brand-subhead {
-    font-size: 99%;
-  }
-}
-
-.ill-hilite {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
-  padding: 10px 50px;
-  font-family: $text-face-head;
-  p {
-    text-align: left;
-    line-height: 2;
-    margin: 0;
-    text-transform: uppercase;
-  }
-  p:nth-child(2) {
-    text-align: center;
-  }
-}
-
-.img-circle {
-  margin: auto;
-  border: 10px solid rgba(255, 255, 255, 0.1);
-}
 .col-sm-4 {
   h3 {
     text-align: center;
@@ -289,7 +244,7 @@ input.form-control:focus, textarea.form-control:focus {
   }
 }
 .btn {
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-weight: 400;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
@@ -317,55 +272,18 @@ input.form-control:focus, textarea.form-control:focus {
   }
 }
 
-.btn-circle {
-  width: 70px;
-  height: 70px;
-  margin-top: 15px;
-  padding: 7px 16px;
-  border: 2px solid $text-color-head;
-  border-radius: 35px;
-  font-size: 40px;
-  color: $text-color-head;
-  background: 0 0;
-  -webkit-transition: background .3s ease-in-out;
-  -moz-transition: background .3s ease-in-out;
-  transition: background .3s ease-in-out;
-  &:hover, &:focus {
-    outline: 0;
-    color: $text-color-head;
-  background: rgba(255,255,255,.1);
-  }
-}
-
-.btn-circle i.animated {
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-duration: 1s;
-  -moz-transition-property: -moz-transform;
-  -moz-transition-duration: 1s;
-  &:hover {
-    -webkit-animation-name: pulse;
-    -moz-animation-name: pulse;
-    -webkit-animation-duration: 1.5s;
-    -moz-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-  }
-}
-
-ul.banner-social-buttons {
-  margin-top: 0;
-}
-
-@media(max-width:1199px) {
-  ul.banner-social-buttons {
-    margin-top: 15px;
+.banner-social-buttons {
+  margin-top: 50px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  li {
+    margin-top: 10px;
   }
 }
 
 @media(max-width:767px) {
-  ul.banner-social-buttons li {
+  .banner-social-buttons li {
     display: block;
     margin-bottom: 20px;
     padding: 0;
@@ -380,6 +298,10 @@ ul.banner-social-buttons {
   outline:none!important
 }
 
+.modal-height {
+  height: 90%;
+}
+
 .modal-content {
   background-color: rgba(255, 255, 255, 0.9);
   color: $body-background;
@@ -391,13 +313,9 @@ ul.banner-social-buttons {
 .modal-title {
   color: $body-background;
 }
-
-#watch {
-  padding: 200px 0;
-}
-
-#about {
-  padding: 100px 0;
+@media(min-width:768px) {
+  #artist-detail {
+  }
 }
 
 #map {
@@ -464,6 +382,7 @@ img::-moz-selection {
   top: 0;
   left: 0;
   z-index: 0;
+  background-color: $body-background;
 }
 
 .ill-slideshow li span {
@@ -502,17 +421,17 @@ img::-moz-selection {
 .ill-slideshow li div em {
   font-family: $text-face-body;
   color: $text-color-gray;
-  font-size: 14px;
+  font-size: 12px;
   padding: 5px;
   a {
     color: $text-color-gray;
   }
 }
 .ill-slideshow li:nth-child(1) span {
-  background-image: url(../img/slide/TedJacobs_NBNY.jpg)
+  background-image: url($background-image-1);
 }
 .ill-slideshow li:nth-child(2) span {
-  background-image: url(../img/slide/NickWolfe_NBNY.jpg);
+  background-image: url($background-image-2);
   -webkit-animation-delay: 6s;
   -moz-animation-delay: 6s;
   -o-animation-delay: 6s;
@@ -520,7 +439,7 @@ img::-moz-selection {
   animation-delay: 6s;
 }
 .ill-slideshow li:nth-child(3) span {
-  background-image: url(../img/slide/KonstantinSergeyev_NBNY.jpg);
+  background-image: url($background-image-3);
   -webkit-animation-delay: 12s;
   -moz-animation-delay: 12s;
   -o-animation-delay: 12s;
@@ -528,7 +447,7 @@ img::-moz-selection {
   animation-delay: 12s;
 }
 .ill-slideshow li:nth-child(4) span {
-  background-image: url(../img/slide/Pink_NBNY.jpg);
+  background-image: url($background-image-4);
   -webkit-animation-delay: 18s;
   -moz-animation-delay: 18s;
   -o-animation-delay: 18s;
@@ -536,7 +455,7 @@ img::-moz-selection {
   animation-delay: 18s;
 }
 .ill-slideshow li:nth-child(5) span {
-  background-image: url(../img/slide/RyanMuir_NBNY.jpg);
+  background-image: url($background-image-5);
   -webkit-animation-delay: 24s;
   -moz-animation-delay: 24s;
   -o-animation-delay: 24s;
@@ -544,7 +463,7 @@ img::-moz-selection {
   animation-delay: 24s;
 }
 .ill-slideshow li:nth-child(6) span {
-  background-image: url(../img/slide/NickWolfe_NBNY.jpg);
+  background-image: url($background-image-2);
   -webkit-animation-delay: 30s;
   -moz-animation-delay: 30s;
   -o-animation-delay: 30s;
@@ -687,25 +606,249 @@ img::-moz-selection {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.fa-angle-double-down:before {
-  content: "\f103";
-}
+
 .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
   content: "\f0c9";
 }
-.fa-facebook:before {
-  content: "\f09a"
+.fa-facebook-square:before {
+  content: "\f082"
 }
-.fa-twitter:before {
-  content: "\f099"
+.fa-twitter-square:before {
+  content: "\f081"
 }
 .fa-vimeo-square:before {
   content: "\f194"
 }
+.fa-tumblr-square:before {
+  content: "\f174"
+}
 .fa-comments:before {
   content: "\f086"
+}
+.fa-google-plus-square:before {
+  content: "\f0d4"
+}
+.fa-check:before {
+  content: "\f00c"
+}
+.fa-plus-square:before {
+  content: "\f0fe"
 }
 .fa-fw {
   width: 1.28571429em;
   text-align: center
 }
+//artists section
+#add-new {
+  cursor: pointer;
+}
+.btn-alt {
+  border: 1px solid $body-background;
+  background-color: $body-border;
+}
+.btn:active,
+.btn.active {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .5);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .5);
+}
+.container-fluid {
+  margin-top: 20px;
+}
+.editArtist {
+  min-height: 700px;
+  background-color: $button-color;
+  padding-top: 10px;
+}
+.artistList {
+  height: 700px;
+  overflow: auto;
+  background-color: $button-press;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+.row {
+  margin: 0 auto;
+}
+.topTitle {
+  margin-bottom: -30px;
+}
+.btns {
+  max-height: 200px;
+}
+.absBtm {
+  position: absolute;
+  bottom: 10px;
+}
+
+//for artist view
+.admin-title {
+  font-family: $text-face-subhead;
+  text-transform: uppercase;
+}
+
+#isPublished {
+  //  border: 1px solid $body-background;
+  //  color: $text-color-gray;
+  //  background-color: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 5px;
+  width: 200px;
+  //  text-align: center;
+  //  cursor: pointer;
+}
+
+.alt-name {
+  color: $text-color-body;
+  background-color: $text-color-body;
+  border: none;
+  border-radius: 2px;
+}
+.alt-name-on {
+  color: $body-background;
+}
+
+//lefthand artist list contents
+#artistList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    position: relative;
+  }
+}
+//.isPublished {
+//  text-align: center;
+//  width: 40px;
+//  height: auto;
+//  position: absolute;
+//  top: 0;
+//  bottom: 0;
+//  margin: auto 0;
+//  border: none;
+//  -webkit-appearance: none;
+//  -ms-appearance: none;
+//  -o-appearance: none;
+//  appearance: none;
+//  display: none;
+//}
+.published {
+  color: $text-color-body;
+}
+.unpublished {
+  color: $text-color-gray;
+}
+.col-sm-9 > .unpublished:before {
+  content: "Not ";
+}
+.togglePub {
+  padding: 0 2px;
+  border: 1px solid $button-color;
+  color: $text-color-gray;
+}
+.listItem {
+  margin: 10px 0;
+  padding: 2px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: transparent;
+}
+.btn-vol {
+  margin-top: 10px;
+}
+.location-map {
+  min-width: 500px;
+  min-height: 400px;
+  border: 2px solid $body-background;
+  background-color: $text-color-gray;
+}
+#tumblrfeed {
+  min-height: 500px;
+}
+.imported-content {
+  margin-top: 175px;
+}
+//artist gallery
+#artistGrid {
+  padding-left: 0;
+  min-height: 500px;
+}
+.gallery-artist {
+  width: 250px;
+  max-width: 250px;
+  height: 250px;
+  max-height: 250px;
+  margin: 10px;
+  border: 1px solid $text-color-gray;
+  background-color: $link-color;
+}
+@media (min-width: 767px) {
+  .gallery-artist {
+    display: inline-block;
+    opacity: 0.5;
+    transition: 1s;
+    cursor: pointer;
+  }
+  .gallery-artist:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+  }
+}
+
+.gallery-titles {
+  margin-top: 125px;
+  margin-bottom: 25px;
+  height: 100px;
+  padding: 5px 5px 0 5px;
+  background-color: $body-border;
+  text-align: center;
+}
+.gallery-artist-info {
+  padding-top: 25px;
+  color: $body-background;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px $body-border;
+}
+.gallery-artist-name {
+  font-weight: bold;
+}
+.gallery-artist-project {
+  font-style: italic;
+}
+#artistDetail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: transparent;
+}
+.artist-detail-visible {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 5s;
+}
+.gallery-detail-visible {
+
+}
+
+#artistDetailContainer {
+  width: 50%;
+  //height: 50%;
+  position: fixed;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: $text-color-gray;
+  top: 20%;
+//  top: 50%;
+//  left: 50%;
+//  margin-top: -100px;
+//  margin-left: -150px;
+  z-index: 11;
+  transition: 5s;
+}
+//.gallery-detail-body {
+//    width: 50%;
+//    height: 50%;
+//  border: 1px solid #f00;
+//}

@@ -26,12 +26,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             $('#artistDetails').find('.form-field').each(function (i, el) {
                 $(el).val('');
             });
-
             $('#isPublished').removeClass('published').addClass('unpublished');
             this.controller.currentArtist = '';
-            if (this.controller.currentView.model) {
-                this.controller.currentView.model.clear();
-            }
         },
         deleteArtist: function () {
             this.controller.actions.deleteArtist();
