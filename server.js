@@ -3,8 +3,11 @@ var application_root = __dirname,
     path = require('path'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
+    methodOverride = require('method-override'),
+    formidable = require('formidable');
     //errorHandler = require('express-error-handler');
+
+
 
 var app = express(),
     port = 4700;
@@ -16,9 +19,23 @@ app.use(methodOverride());
 app.use(express.static(path.join(application_root, '')));
 //app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
-app.route('/api')
-    .get(function (req, resp) {
-        resp.send('api is up and running')
+app.route('/api/upload')
+    .post(function (req, resp) {
+        var form = new formidable.IncomingForm(),
+            path = '';
+        form.uploadDir = 'artists/img';
+        form.keepExtensions = true;
+//        form.on('progress', function (bytesReceived, bytesExpected) {
+//            var percent = Math.floor(bytesReceived / bytesExpected * 100);
+//            console.log(percent);
+//        });
+        form.on('file', function (name, file) {
+            path = file.path;
+        });
+        form.on('end', function () {
+            resp.end(path);
+        });
+        form.parse(req);
     });
 
 app.route('/api/artists')
@@ -40,6 +57,7 @@ app.route('/api/artists')
             projectName: req.body.projectName,
             projectDesc: req.body.projectDesc,
             artistBio: req.body.artistBio,
+            photoUrl: req.body.photoUrl,
             webLink: req.body.webLink,
             published: req.body.published,
             displayAltName: req.body.displayAltName
@@ -74,6 +92,7 @@ app.route('/api/artists/:id')
             artist.projectName = req.body.projectName;
             artist.projectDesc = req.body.projectDesc;
             artist.artistBio = req.body.artistBio;
+            artist.photoUrl = req.body.photoUrl;
             artist.webLink = req.body.webLink;
             artist.published = req.body.published;
             artist.displayAltName = req.body.displayAltName;
@@ -109,6 +128,7 @@ var Artist = new mongoose.Schema({
     projectName: String,
     projectDesc: String,
     artistBio: String,
+    photoUrl: String,
     webLink: String,
     published: Boolean,
     displayAltName: Boolean

@@ -640,6 +640,7 @@ img::-moz-selection {
 
 .absBtm {
   position: absolute;
+  margin-top: 200px;
   bottom: 10px; }
 
 .admin-title {
@@ -749,3 +750,9 @@ img::-moz-selection {
 
 .modal-open .modal, .btn:focus, a:focus {
   outline: none !important; }
+
+.modal-title {
+  color: black; }
+
+.photoUploadPreview {
+  margin-top: 5px; }

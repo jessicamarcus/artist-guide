@@ -56,8 +56,12 @@
                 <div class="col-sm-9"><input id="webLink" type="url" class="form-control form-field" /> </div>
             </div>
             <div class="form-group">
-                <label for="photo" class="control-label col-sm-3">Photo:</label>
-                <div class="col-sm-9"><input type="file" id="photo" /></div>
+                <label for="photoUpload" class="control-label col-sm-3">Photo:</label>
+                <div class="col-sm-9"><input type="file" id="photoUpload" onchange="previewImg()" />
+                    <img src="" width="200" alt="" class="photoUploadPreview" />
+                    <button type="button" onclick="uploadImg()">upload image</button>
+                </div>
+
             </div>
 
             <div class="form-group">
@@ -80,6 +84,7 @@
     </div>
 
 </div></div>
+    <script src="js/imgUpload.js"></script>
     <script data-main="app" src="lib/require.js"></script>
 </body>
 </html>

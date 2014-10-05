@@ -8,7 +8,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             projectDesc: '',
             artistBio: '',
             webLink: '',
-            //photo: '',
+            photoUrl: '',
             published: false,
             altNameDisplayed: false
         },
