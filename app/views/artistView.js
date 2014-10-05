@@ -1,4 +1,4 @@
-define(['jquery', 'backbone'], function ($, Backbone) {
+define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
     return Backbone.View.extend({
         el: '#artistDetails',
         render: function () {
@@ -20,7 +20,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         events: {
             'click #delete': 'deleteArtist',
             'click #cancel': 'clearForm',
-            'click #save': 'saveArtist'
+            'click #save': 'saveArtist',
+            'change #photoUpload': 'previewImg'
         },
         clearForm: function () {
             $('#artistDetails').find('.form-field').each(function (i, el) {
@@ -34,6 +35,10 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             this.clearForm();
         },
         saveArtist: function () {
+            if (document.getElementById('photoUpload').files.length) {
+                console.log('image detected');
+                ImgUtils.uploadImg(document.getElementById('photoUpload').files);
+            }
             if (this.controller.currentArtist) {
                 this.controller.actions.editArtist();
 
@@ -41,7 +46,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                 this.controller.actions.createNew();
             }
             this.clearForm();
-        }
+        },
+        previewImg: ImgUtils.previewImg
 //        publish: function () {
 //            $(event.target).toggleClass('published');
 //            this.model.isPublished();

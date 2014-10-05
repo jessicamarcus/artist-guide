@@ -11,7 +11,8 @@ requirejs.config({
         'v.list': 'app/views/listView',
         'v.listitem': 'app/views/listItemView',
         'v.artist': 'app/views/artistView',
-        'ctl.admin': 'app/controllers/adminController'
+        'ctl.admin': 'app/controllers/adminController',
+        'imgutils': 'app/widgets/imgUtils'
     },
     shim: {
         underscore: { exports: '_' },
