@@ -36,7 +36,6 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
         },
         saveArtist: function () {
             if (document.getElementById('photoUpload').files.length) {
-                console.log('image detected');
                 ImgUtils.uploadImg(document.getElementById('photoUpload').files);
             }
             if (this.controller.currentArtist) {
