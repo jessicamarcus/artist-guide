@@ -36,7 +36,8 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
         },
         saveArtist: function () {
             if (document.getElementById('photoUpload').files.length) {
-                ImgUtils.uploadImg(document.getElementById('photoUpload').files);
+                ImgUtils.uploadImg(document.getElementById('photoUpload').files, callback);
+                function callback(imageUrl) { console.log('callback: ' + imageUrl) }
             }
             if (this.controller.currentArtist) {
                 this.controller.actions.editArtist();
@@ -47,12 +48,5 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
             this.clearForm();
         },
         previewImg: ImgUtils.previewImg
-//        publish: function () {
-//            $(event.target).toggleClass('published');
-//            this.model.isPublished();
-//        },
-//        setAlt: function () {
-//            this.model.altNameDisplay();
-//        }
     })
 });

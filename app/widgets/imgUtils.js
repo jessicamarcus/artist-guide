@@ -1,7 +1,6 @@
 define(['jquery'], function ($) {
-
     return {
-        uploadImg: function (files) {
+        uploadImg: function (files, response) {
             var data = new FormData();
 
             $.each(files, function (key, value) {
@@ -18,24 +17,25 @@ define(['jquery'], function ($) {
                     //take img path, convert into url
                     var r = new RegExp('\\\\', 'g'),
                         imageUrl = data.replace(r, '/');
-                    console.log(imageUrl);
+                    response(imageUrl);
                 },
                 error: function () {
                     console.log('uploadImg ajax error')
                 }
-            })
+            });
+
         },
         previewImg: function () {
-        var preview = document.querySelector('img'),
-            file = document.querySelector('input[type=file]').files[0],
-            reader = new FileReader();
+            var preview = document.querySelector('img'),
+                file = document.querySelector('input[type=file]').files[0],
+                reader = new FileReader();
 
-        reader.onloadend = function () {
-            preview.src = reader.result;
-        };
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
 
-        if (file) reader.readAsDataURL(file);
-        else preview.src = '';
+            if (file) reader.readAsDataURL(file);
+            else preview.src = '';
         }
     }
 });
