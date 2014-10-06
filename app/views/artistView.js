@@ -1,5 +1,5 @@
 define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
-    return Backbone.View.extend({
+    var artistView = Backbone.View.extend({
         el: '#artistDetails',
         render: function () {
             var self = this;
@@ -35,18 +35,24 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
             this.clearForm();
         },
         saveArtist: function () {
+            var self = this;
             if (document.getElementById('photoUpload').files.length) {
                 ImgUtils.uploadImg(document.getElementById('photoUpload').files, callback);
-                function callback(imageUrl) { console.log('callback: ' + imageUrl) }
+                function callback(url) {
+                    self.storeArtist(url)
+                }
             }
+        },
+        storeArtist: function (url) {
             if (this.controller.currentArtist) {
-                this.controller.actions.editArtist();
-
+                console.log('editArtist: ' + url);
+                this.controller.actions.editArtist(url);
             } else {
-                this.controller.actions.createNew();
+                console.log('createNew: ' + url);
+                this.controller.actions.createNew(url);
             }
-            this.clearForm();
         },
         previewImg: ImgUtils.previewImg
     })
+    return artistView;
 });

@@ -32,20 +32,26 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
 
                 if (adminController.currentArtist) artistView.listenTo(adminController.currentArtist, 'change', artistView.render);
             },
-            createNew: function () {
+            createNew: function (url) {
                 var formData = {};
                 $('#artistDetails').find('.form-field').each(function (i, el) {
                     if ($(el).val() != '') {
                         formData[el.id] = $(el).val();
                     }
                 });
-                if (!_.isEmpty(formData)) adminController.artistList.create(formData);
+                if (!_.isEmpty(formData)) {
+                    formData.photoUrl = url;
+                    console.log('createNew' + formData);
+                    adminController.artistList.create(formData);
+                }
             },
-            editArtist: function () {
+            editArtist: function (url) {
                 var formData = {};
                 $('#artistDetails').find('.form-field').each(function (i, el) {
                     formData[el.id] = $(el).val();
                 });
+                formData.photoUrl = url;
+                console.log('editArtist' + formData);
                 adminController.currentArtist.save(formData);
             },
             deleteArtist: function () {

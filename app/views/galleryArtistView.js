@@ -1,7 +1,7 @@
 define(['jquery', 'backbone', 'handlebars', 'v.galleryArtistDetail', 'text!app/views/templates/galleryArtistTemplate.html'], function ($, Backbone, Handlebars, GalleryArtistDetailView, GalleryArtistTemplate) {
     return Backbone.View.extend({
         tagName: 'li',
-        className: 'gallery-artist',
+        className: 'gallery-li    display: inline-block;',
 //        className: 'anotherClass',
         template: Handlebars.compile(GalleryArtistTemplate),
 

@@ -31,12 +31,12 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
-  text-transform: lowercase;
-  font-weight: 700;
-  letter-spacing: .1em; }
+  text-transform: uppercase;
+  font-weight: 700; }
 
 h1, h2, h3, h4, h5, h6, .navbar, .btn {
-  font-family: "Aller Display", "Montserrat", sans-serif;
+  font-family: "Lato", "Open Sans", sans-serif;
+  letter-spacing: .1em;
   color: white; }
 
 ul {
@@ -103,7 +103,7 @@ a {
 
 .logo-type {
   font-family: "Aller Display", "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0.2em;
   text-transform: lowercase; }
 
@@ -172,9 +172,9 @@ input.form-control:focus, textarea.form-control:focus {
   padding-top: 5px;
   padding-right: 15px;
   font-family: "Montserrat", "Helvetica Neue", sans-serif;
-  font-size: 18px;
+  text-transform: uppercase;
+  font-size: 16px;
   font-weight: bolder;
-  letter-spacing: 1px;
   background-color: black;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
 
@@ -710,24 +710,25 @@ img::-moz-selection {
   min-height: 500px; }
 
 .gallery-artist {
-  width: 250px;
-  max-width: 250px;
-  height: 250px;
-  max-height: 250px;
+  width: 225px;
+  max-width: 225px;
+  height: 225px;
+  max-height: 225px;
   margin: 10px;
-  border: 1px solid #7b7d7e;
-  background-color: #44c1b1; }
+  border: 1px solid #7b7d7e; }
 
 @media (min-width: 767px) {
   .gallery-artist {
-    display: inline-block;
     opacity: 0.5;
     transition: 1s;
     cursor: pointer; }
 
   .gallery-artist:hover {
     opacity: 1.0;
-    filter: alpha(opacity=100); } }
+    filter: alpha(opacity=100); }
+
+  .gallery-li {
+    display: inline-block; } }
 .gallery-titles {
   margin-top: 125px;
   margin-bottom: 25px;
@@ -751,8 +752,26 @@ img::-moz-selection {
 .modal-open .modal, .btn:focus, a:focus {
   outline: none !important; }
 
-.modal-title {
+#artistDetail {
   color: black; }
+
+.modal-header-head {
+  color: black;
+  font-family: 'montserrat', sans-serif;
+  font-size: 120%; }
+
+.modal-header-subhead {
+  color: black;
+  font-family: 'montserrat', sans-serif;
+  font-size: 110%; }
+
+.modal-body {
+  border: 1px solid #00f; }
 
 .photoUploadPreview {
   margin-top: 5px; }
+
+.artist-detail-image {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px; }

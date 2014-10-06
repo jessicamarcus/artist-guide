@@ -2,9 +2,13 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title">{{firstName}} {{lastName}}</h4>
+            <span class="modal-header-head">{{firstName}} {{lastName}}</span><br/>
+            <span class="modal-header-subhead">{{projectName}}</span>
         </div>
         <div class="modal-body modal-height">
+            {{#if photoUrl}}
+            <img class="artist-detail-image" src={{photoUrl}} alt="artist's image" />
+            {{/if}}
             <p>{{projectDesc}}</p>
             <p>{{artistBio}}</p>
         </div>
