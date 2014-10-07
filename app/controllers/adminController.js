@@ -54,7 +54,7 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                 adminController.currentArtist.save(formData);
             },
             deleteArtist: function () {
-                if (adminController.currentView.length) {
+                if (adminController.currentView.model) {
                     adminController.currentView.model.destroy();
                 }
             }

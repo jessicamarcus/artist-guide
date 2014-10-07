@@ -14,6 +14,11 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
                 currentModel.attributes.published ?
                     $('#isPublished').removeClass('unpublished').addClass('published') :
                     $('#isPublished').removeClass('published').addClass('unpublished');
+                if (currentModel.attributes.photoUrl) {
+                    $('#photoUploadPreview').attr('src', 'http://104.131.91.130:4700/' + currentModel.attributes.photoUrl); //modify url for offsite access
+                } else {
+                    $('#photoUploadPreview').appendTo('<span>No photo</span>');
+                }
                 currentModel.listenTo(currentModel, 'change', self.render)
             }
         },
