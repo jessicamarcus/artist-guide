@@ -8,7 +8,7 @@ define(['jquery'], function ($) {
             });
 
             $.ajax({
-                url: '/api/upload',
+                url: 'http://illuminus.jessicamarcus.com:4700/api/upload',
                 type: 'POST',
                 processData: false,
                 contentType: false,
@@ -26,12 +26,12 @@ define(['jquery'], function ($) {
 
         },
         previewImg: function () {
-            var preview = document.querySelector('img'),
+            var preview = document.getElementById('photoUploadPreview'),
                 file = document.querySelector('input[type=file]').files[0],
                 reader = new FileReader();
 
             reader.onloadend = function () {
-                preview.src = reader.result;
+                $(preview).attr('src', reader.result);
             };
 
             if (file) reader.readAsDataURL(file);

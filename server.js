@@ -12,6 +12,16 @@ var application_root = __dirname,
 var app = express(),
     port = 4700;
 
+function accessControlOptions (req, res, next) {
+    res.header('Access-Control-Allow-Origin', req.headers.origin || "*");
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    next();
+}
+
+app.use(accessControlOptions);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: '*/json' }));
 app.use(bodyParser.json({ type: 'text/plain' }));

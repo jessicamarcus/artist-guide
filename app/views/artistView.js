@@ -29,6 +29,10 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
             });
             $('#isPublished').removeClass('published').addClass('unpublished');
             this.controller.currentArtist = '';
+            if (document.querySelector('input[type=file]').files[0]) {
+                document.querySelector('input[type=file]').files.length = 0;
+                $('#photoUploadPreview').removeAttr('src');
+            }
         },
         deleteArtist: function () {
             this.controller.actions.deleteArtist();

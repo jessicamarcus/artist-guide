@@ -1,12 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Bitter|Montserrat|Lato);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 // http://www.fontsquirrel.com/license/Aller
 @font-face {
   font-family: "Aller Display";
   src: url("../fonts/AllerDisplay.ttf")
 }
 
-$text-face-head:"Aller Display", "Montserrat", sans-serif;
-$text-face-subhead: "Montserrat", "Helvetica Neue", sans-serif;
+$text-face-head:"Aller Display", "Lato", "Open Sans", sans-serif;
+$text-face-subhead: "Lato", "Open Sans", sans-serif;
+//$text-face-subhead: "Montserrat", "Helvetica Neue", sans-serif;
 $text-face-body: "Lato", "Open Sans", sans-serif;
 $text-face-serif: Bitter, "Open Sans", sans-serif;
 $text-color-body: rgb(238, 238, 238);
@@ -63,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4, h5, h6, .navbar, .btn {
-  font-family: $text-face-body;
+  font-family: $text-face-subhead;
   letter-spacing: .1em;
   color: $text-color-head;
 }
@@ -128,11 +129,13 @@ a {
   display: block;
 }
 .brand-subhead {
+  font-weight: 300;
   font-size: 99%;
   text-transform: none;
   font-family: $text-face-subhead;
 }
 .brand-subhead-time {
+  font-weight: 300;
   font-family: $text-face-subhead;
   font-size: 14px;
   text-transform: none;
@@ -154,9 +157,9 @@ a {
     display: block;
   }
   .brand-subhead-time {
-    font-size: 20px;
-    font-weight: lighter;
-    margin-top: -100px;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: -150px;
   }
 }
 
@@ -177,6 +180,9 @@ a {
 .page-content {
   background-color: rgba(0, 0, 0, 0.9);
   padding: 5px;
+  h2, h3 {
+    padding-top: 25px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -228,7 +234,7 @@ input.form-control:focus, textarea.form-control:focus {
 .navbar {
   padding-top: 5px;
   padding-right: 15px;
-  font-family: $text-face-subhead;
+  font-family: $text-face-body;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: bolder;
@@ -246,8 +252,8 @@ input.form-control:focus, textarea.form-control:focus {
   }
 }
 .btn {
-  text-transform: lowercase;
-  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: bolder;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
@@ -292,19 +298,6 @@ input.form-control:focus, textarea.form-control:focus {
     &:last-child {
       margin-bottom: 0;
     }
-  }
-}
-
-#map {
-  width: 100%;
-  height: 200px;
-}
-@media(min-width:768px) {
-  .content-section {
-    padding: 100px 0;
-  }
-  #map {
-    height: 400px;
   }
 }
 
@@ -757,13 +750,13 @@ img::-moz-selection {
     filter: alpha(opacity=100);
   }
   .gallery-li {
-    display: inline-block;
+//    display: inline-block;
+    float: left;
   }
 }
 
 .gallery-titles {
   margin-top: 125px;
-  margin-bottom: 25px;
   height: 100px;
   padding: 5px 5px 0 5px;
   background-color: $body-border;
@@ -800,13 +793,47 @@ img::-moz-selection {
   font-size: 110%;
 }
 .modal-body {
-  border: 1px solid #00f;
+//  border: 1px solid #00f;
 }
-.photoUploadPreview {
+#photoUploadPreview {
   margin-top: 5px;
 }
 .artist-detail-image {
   width: 100%;
   margin: 0 auto;
   max-width: 800px;
+}
+
+//detect nodes added to dom
+@keyframes nodeInserted {
+  from { opacity: 0.99; }
+  to { opacity: 1; }
+}
+@-moz-keyframes nodeInserted {
+  from { opacity: 0.99; }
+  to { opacity: 1; }
+}
+@-webkit-keyframes nodeInserted {
+  from { opacity: 0.99; }
+  to { opacity: 1; }
+}
+@-ms-keyframes nodeInserted {
+  from { opacity: 0.99; }
+  to { opacity: 1; }
+}
+@-o-keyframes nodeInserted {
+  from { opacity: 0.99; }
+  to { opacity: 1; }
+}
+#artistGrid > li {
+  animation-duration: 0.001s;
+  -o-animation-duration: 0.001s;
+  -ms-animation-duration: 0.001s;
+  -moz-animation-duration: 0.001s;
+  -webkit-animation-duration: 0.001s;
+  animation-name: nodeInserted;
+  -o-animation-name: nodeInserted;
+  -ms-animation-name: nodeInserted;
+  -moz-animation-name: nodeInserted;
+  -webkit-animation-name: nodeInserted;
 }

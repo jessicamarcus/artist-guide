@@ -51,7 +51,6 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                     formData[el.id] = $(el).val();
                 });
                 formData.photoUrl = url;
-                console.log('editArtist' + formData);
                 adminController.currentArtist.save(formData);
             },
             deleteArtist: function () {
