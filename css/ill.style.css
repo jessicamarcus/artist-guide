@@ -766,49 +766,11 @@ img::-moz-selection {
   margin: 0 auto;
   max-width: 800px; }
 
-@keyframes nodeInserted {
-  from {
-    opacity: 0.99; }
+#saveStatus {
+  text-align: center; }
 
-  to {
-    opacity: 1; } }
-
-@-moz-keyframes nodeInserted {
-  from {
-    opacity: 0.99; }
-
-  to {
-    opacity: 1; } }
-
-@-webkit-keyframes nodeInserted {
-  from {
-    opacity: 0.99; }
-
-  to {
-    opacity: 1; } }
-
-@-ms-keyframes nodeInserted {
-  from {
-    opacity: 0.99; }
-
-  to {
-    opacity: 1; } }
-
-@-o-keyframes nodeInserted {
-  from {
-    opacity: 0.99; }
-
-  to {
-    opacity: 1; } }
-
-#artistGrid > li {
-  animation-duration: 0.001s;
-  -o-animation-duration: 0.001s;
-  -ms-animation-duration: 0.001s;
-  -moz-animation-duration: 0.001s;
-  -webkit-animation-duration: 0.001s;
-  animation-name: nodeInserted;
-  -o-animation-name: nodeInserted;
-  -ms-animation-name: nodeInserted;
-  -moz-animation-name: nodeInserted;
-  -webkit-animation-name: nodeInserted; }
+#statusSaved, #statusDeleted {
+  color: #eeeeee;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center; }

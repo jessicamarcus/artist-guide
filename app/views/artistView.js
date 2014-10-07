@@ -41,27 +41,30 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
         },
         deleteArtist: function () {
             this.controller.actions.deleteArtist();
-            this.clearForm();
         },
         saveArtist: function () {
             var self = this;
+
             if (document.getElementById('photoUpload').files.length) {
                 ImgUtils.uploadImg(document.getElementById('photoUpload').files, callback);
-                function callback(url) {
-                    self.storeArtist(url)
-                }
+            } else {
+                callback()
+            }
+            function callback(url) {
+                self.storeArtist(url)
             }
         },
         storeArtist: function (url) {
-            if (this.controller.currentArtist) {
-                console.log('editArtist: ' + url);
-                this.controller.actions.editArtist(url);
-            } else {
-                console.log('createNew: ' + url);
-                this.controller.actions.createNew(url);
+            //make sure we don't accidentally create entries that aren't accessible to the admin user!
+            if (!$('#firstName').val() || !$('#lastName').val() || !$('#projectName').val()) {
+                if (this.controller.currentArtist) {
+                    this.controller.actions.editArtist(url);
+                } else {
+                    this.controller.actions.createNew(url);
+                }
             }
         },
         previewImg: ImgUtils.previewImg
-    })
+    });
     return artistView;
 });

@@ -17,7 +17,7 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                     var link = this.$el.find('#artist' + artist.id);
                     link.click(function () {
                         adminController.actions.showDetail(artist); // click to display artist info in artistView
-                        console.log(artist.id); //DEBUG - print selected model's id to console
+//                        console.log(artist.id); //debug tool - print selected model's id to console
                     });
                 });
                 adminController.artistList.fetch({reset: true});
@@ -41,8 +41,12 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                 });
                 if (!_.isEmpty(formData)) {
                     formData.photoUrl = url;
-                    console.log('createNew' + formData);
                     adminController.artistList.create(formData);
+                    $('#saveStatus').html('<div id="statusSaved">New Artist Saved</div>');
+                    $('#statusSaved').fadeOut(3000, function () {
+                        $('#saveStatus').empty();
+                        adminController.actions.clearForm();
+                    });
                 }
             },
             editArtist: function (url) {
@@ -52,10 +56,31 @@ define(['jquery', 'backbone', 'handlebars', 'v.list', 'v.artist','v.listitem', '
                 });
                 formData.photoUrl = url;
                 adminController.currentArtist.save(formData);
+                $('#saveStatus').html('<div id="statusSaved">Changes Saved</div>');
+                $('#statusSaved').fadeOut(3000, function () {
+                    $('#saveStatus').empty();
+                    adminController.actions.clearForm();
+                });
             },
             deleteArtist: function () {
                 if (adminController.currentView.model) {
                     adminController.currentView.model.destroy();
+                    $('#saveStatus').html('<div id="statusDeleted">Artist Deleted</div>');
+                    $('#statusDeleted').fadeOut(3000, function () {
+                        $('#saveStatus').empty();
+                        adminController.actions.clearForm();
+                    });
+                }
+            },
+            clearForm: function () {
+                $('#artistDetails').find('.form-field').each(function (i, el) {
+                    $(el).val('');
+                });
+                $('#isPublished').removeClass('published').addClass('unpublished');
+                if (adminController.currentArtist) adminController.currentArtist = '';
+                if (document.querySelector('input[type=file]').files[0]) {
+                    document.querySelector('input[type=file]').files.length = 0;
+                    $('#photoUploadPreview').removeAttr('src');
                 }
             }
         },
