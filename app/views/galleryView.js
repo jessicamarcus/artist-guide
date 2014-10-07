@@ -4,7 +4,9 @@ define(['jquery', 'backbone', 'handlebars', 'c.list', 'v.galleryArtist'], functi
 
         render: function () {
             this.collection.each(function (artist) {
-                this.renderArtists(artist);
+                if (artist.attributes.published) {
+                    this.renderArtists(artist);
+                }
             }, this);
         },
         renderArtists: function (artist) {
