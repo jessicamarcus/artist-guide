@@ -1,12 +1,16 @@
 {
-    "name": "artist-guide",
-    "version": "0.0.1",
-    "dependencies": {
-        "express": "*",
-        "path": "*",
-        "mongoose": "*",
-        "body-parser": "*",
-        "method-override": "*",
-        "formidable": "*"
-    }
+  "name": "artist-guide",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "path": "*",
+    "mongoose": "*",
+    "body-parser": "*",
+    "method-override": "*",
+    "formidable": "*"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-uncss": "^0.3.7"
+  }
 }

@@ -153,8 +153,13 @@ a {
   .logo .brand-heading, .logo .brand-subhead {
     display: none;
   }
-  .logo img {
-    display: block;
+  .logo {
+    img {
+      display: block;
+      width: 90%;
+    }
+    //corrects svg scaling in ie
+    img[src*=svg] { width/*\**/: 100%\9;}
   }
   .brand-subhead-time {
     font-size: 24px;
@@ -844,4 +849,9 @@ img::-moz-selection {
   font-size: 24px;
   text-transform: uppercase;
   text-align: center;
+}
+.sponsor-logo {
+  padding: 25px;
+  min-height: 100%;
+  height: 100%;
 }
