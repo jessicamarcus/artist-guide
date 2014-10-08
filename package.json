@@ -6,6 +6,7 @@
         "path": "*",
         "mongoose": "*",
         "body-parser": "*",
-        "method-override": "*"
+        "method-override": "*",
+        "formidable": "*"
     }
 }
