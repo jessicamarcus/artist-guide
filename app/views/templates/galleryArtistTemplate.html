@@ -1,7 +1,11 @@
 <div class="gallery-artist" style="background-image: url(http://illuminus.jessicamarcus.com/{{photoUrl}})" data-toggle="modal" data-target="#artistDetail">
 <div class="gallery-titles">
         <div class="gallery-artist-info">
+            {{#if firstName}}
             <span class="gallery-artist-name">{{firstName}} {{lastName}}</span>
+            {{else}}
+            <span class="gallery-artist-name">{{projectName}}</span>
+            {{/if}}
         </div>
 </div>
 </div>

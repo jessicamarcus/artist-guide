@@ -78,7 +78,7 @@ p {
   font-size: 14px;
   line-height: 1.5;
 }
-@media(min-width:768px) {
+@media(min-width: 768px) {
   p {
     margin: 0 0 35px;
     font-size: 20px;
@@ -591,6 +591,9 @@ img::-moz-selection {
 .fa-plus-square:before {
   content: "\f0fe"
 }
+.fa-external-link:before {
+  content: "\f08e"
+}
 .fa-fw {
   width: 1.28571429em;
   text-align: center
@@ -655,16 +658,16 @@ img::-moz-selection {
   //  text-align: center;
   //  cursor: pointer;
 }
-
-.alt-name {
-  color: $text-color-body;
-  background-color: $text-color-body;
-  border: none;
-  border-radius: 2px;
-}
-.alt-name-on {
-  color: $body-background;
-}
+//
+//.alt-name {
+//  color: $text-color-body;
+//  background-color: $text-color-body;
+//  border: none;
+//  border-radius: 2px;
+//}
+//.alt-name-on {
+//  color: $body-background;
+//}
 
 //lefthand artist list contents
 #artistList {
@@ -715,20 +718,25 @@ img::-moz-selection {
 #artistGrid {
   padding-left: 0;
   min-height: 500px;
+  margin: 0 auto;
 }
 .gallery-artist {
   width: 225px;
   max-width: 225px;
   height: 225px;
   max-height: 225px;
-  margin: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid $text-color-gray;
 }
-@media (min-width: 767px) {
+
+@media (min-width: 768px) {
   .gallery-artist {
     opacity: 0.5;
     transition: 1s;
     cursor: pointer;
+    margin: 10px;
   }
   .gallery-artist:hover {
     opacity: 1.0;
@@ -767,27 +775,66 @@ img::-moz-selection {
 #artistDetail {
   color: $body-background;
 }
+.modal-header {
+  border-bottom: none;
+}
 .modal-header-head {
   color: $body-background;
-  font-family: 'montserrat', sans-serif;
-  font-size: 120%;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: $text-face-subhead;
+  font-size: 22px;
 }
+@media (max-width: 767px) {
+  .modal-header-head:after {
+    content: "\A";
+    white-space: pre;
+  }
+}
+@media (min-width: 768px) {
+  .modal-header-head {
+    padding-right: 10px;
+  }
+}
+
 .modal-header-subhead {
   color: $body-background;
-  font-family: 'montserrat', sans-serif;
-  font-size: 110%;
+  font-family: $text-face-subhead;
+  font-size: 16px;
 }
 .modal-body {
-//  border: 1px solid #00f;
+  margin: auto;
+  p {
+    padding: 0 10px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-body {
+    p {
+      padding: 0 35px;
+    }
+  }
+  .modal-header-head {
+    padding-left: 10px;
+    font-size: 36px;
+  }
+  .modal-header-subhead {
+    font-size: 20px;
+  }
+}
+.modal-image {
+  width: 100%;
+  margin: auto;
+  max-width: 800px;
+  padding-bottom: 5px;
+}
+.artist-detail-image {
+  width: 100%;
+  border: 1px solid $text-color-gray;
 }
 
 #photoUploadPreview {
   margin-top: 5px;
-}
-.artist-detail-image {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 800px;
 }
 #saveStatus {
   text-align: center;
