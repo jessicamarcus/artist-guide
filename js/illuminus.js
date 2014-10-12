@@ -20,7 +20,7 @@ $("#illNav").load("templates/navbar.html");
 
 //get last five tumblr posts + embed on feed page
 if ($('#tumblrfeed').length > 0) {
-    $.getJSON('http://jsonfeedtest.tumblr.com/api/read/json?num=15&callback=?', function (data) {
+    $.getJSON('http://illuminusboston.tumblr.com/api/read/json?num=15&callback=?', function (data) {
         var source = $('#tumblr-template').html() || '',
             template = Handlebars.compile(source);
 

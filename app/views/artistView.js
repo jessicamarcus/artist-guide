@@ -55,13 +55,10 @@ define(['jquery', 'backbone', 'imgutils'], function ($, Backbone, ImgUtils) {
             }
         },
         storeArtist: function (url) {
-            //make sure we don't accidentally create entries that aren't accessible to the admin user!
-            if (!$('#firstName').val() || !$('#lastName').val() || !$('#projectName').val()) {
-                if (this.controller.currentArtist) {
-                    this.controller.actions.editArtist(url);
-                } else {
-                    this.controller.actions.createNew(url);
-                }
+            if (this.controller.currentArtist) {
+                this.controller.actions.editArtist(url);
+            } else {
+                this.controller.actions.createNew(url);
             }
         },
         previewImg: ImgUtils.previewImg

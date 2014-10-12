@@ -72,6 +72,6 @@ $(document).ready(function () {
 $('#volunteerModal').on('shown.bs.modal', function () {
     $('#volunteerForm').find('[placeholder="First Name"]').focus();  // Initial focus on the username field
 });
-$('volunteerModal').on('success.form.bv', function (e) {
+$('#volunteerModal').on('success.form.bv', function (e) {
     e.preventDefault();  // Prevent submission unless required fields are completed
 });
