@@ -1,0 +1,32 @@
+@mixin full-background($bg-color, $bg-image) {
+  background: {
+    color: $bg-color;
+    image: url($bg-image);
+    size: cover;
+    attachment: fixed;
+    position: top center;
+    repeat: no-repeat;
+  }
+}
+
+@mixin link-transition($speed) {
+  -webkit-transition: all $speed ease-in-out;
+  -moz-transition: all $speed ease-in-out;
+  transition: all $speed ease-in-out;
+}
+
+@mixin animation($animation, $speed) {
+  -webkit-animation: $animation $speed linear infinite 0s;
+  -moz-animation: $animation $speed linear infinite 0s;
+  -o-animation: $animation $speed linear infinite 0s;
+  -ms-animation: $animation $speed linear infinite 0s;
+  animation: $animation $speed linear infinite 0s;
+}
+
+@mixin animation-delay($duration) {
+  -webkit-animation-delay: $duration;
+  -moz-animation-delay: $duration;
+  -o-animation-delay: $duration;
+  -ms-animation-delay: $duration;
+  animation-delay: $duration;
+}

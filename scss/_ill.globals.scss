@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@font-face {
+  font-family: "Aller Display";
+  src: url("../fonts/AllerDisplay.ttf")
+}
+
+$text-face-head:"Aller Display", "Lato", "Open Sans", sans-serif;
+$text-face-subhead: "Lato", "Open Sans", sans-serif;
+$text-face-body: "Lato", "Open Sans", sans-serif;
+$text-color-body: rgb(238, 238, 238);
+$text-color-head: rgb(255, 255, 255);
+$text-color-gray: rgb(123, 125, 126);
+
+$body-background: rgb(0, 0, 0);
+$body-border: rgba(255,255,255,.3);
+$link-color: rgb(68, 193, 177);
+$button-color: rgb(0, 129, 124);
+$button-press: rgb(0, 76, 70);
+
+$background-image-1: "../img/slide/TedJacobs_NBNY.jpg";
+$background-image-2: "../img/slide/NickWolfe_NBNY.jpg";
+$background-image-3: "../img/slide/KonstantinSergeyev_NBNY.jpg";
+$background-image-4: "../img/slide/Pink_NBNY.jpg";
+$background-image-5: "../img/slide/RyanMuir_NBNY.jpg";
